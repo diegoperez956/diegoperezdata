@@ -28,14 +28,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    body {
-      margin: 0;
-      position: relative;
-      background-color: #ffffff;
-      color: #1f2937;
-      overflow-x: hidden;
-      font-family: Helvetica, Arial, sans-serif;
-    }
+    body { margin: 0; position: relative; background-color: #ffffff; color: #1f2937; overflow-x: hidden; font-family: Helvetica, Arial, sans-serif; }
     .wave-bg path { transform-box: fill-box; transform-origin: center; }
     .wave1 { animation: waveMove1 10s ease-in-out infinite alternate; }
     .wave2 { animation: waveMove2 12s ease-in-out infinite alternate; }
@@ -44,6 +37,7 @@
   </style>
 </head>
 <body class="h-screen">
+  <!-- full-bleed animated background -->
   <div class="absolute inset-0 -z-10 wave-bg">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none" class="w-full h-full">
       <defs>
@@ -58,7 +52,13 @@
     </svg>
   </div>
 
+  <!-- Mobile disclaimer -->
+  <div class="block md:hidden bg-yellow-100 text-yellow-800 p-4 text-center font-medium">
+    Tap on the title to view the PDF on mobile
+  </div>
+
   <div class="relative flex flex-col h-full">
+    <!-- HEADER -->
     <div class="pt-6 pb-2 flex justify-center">
       <img src="name_logo.png" alt="Diego Alexis Perez logo" class="w-48 md:w-64 lg:w-80 h-auto object-contain" />
     </div>
@@ -90,25 +90,34 @@
 
         <!-- ALICE Correlations Presentation Card -->
         <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
-          <h2 class="text-2xl font-semibold mb-4 text-center">ALICE Correlations Presentation</h2>
-          <div class="w-full h-[60vh] overflow-auto">
-            <embed src="Disparities Unveiled Stronger Correlations Between ALICE Households and Hispanic or Latino Communities.pptx.pdf" type="application/pdf" class="w-full h-auto" style="min-height:100%;" />
+          <h2 class="text-2xl font-semibold mb-4 text-center">
+            <a href="Disparities Unveiled Stronger Correlations Between ALICE Households and Hispanic or Latino Communities.pptx.pdf" target="_blank" class="hover:underline">ALICE Correlations Presentation</a>
+            <span class="block text-sm text-gray-500 md:hidden">Tap title to view PDF</span>
+          </h2>
+          <div class="relative w-full" style="padding-top: 75%;">
+            <embed src="Disparities Unveiled Stronger Correlations Between ALICE Households and Hispanic or Latino Communities.pptx.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" />
           </div>
         </div>
 
         <!-- NTC Partner Report Card -->
         <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
-          <h2 class="text-2xl font-semibold mb-4 text-center">NTC Partner Report Final</h2>
-          <div class="w-full h-[60vh] overflow-auto">
-            <embed src="NTC Partner Report Final 10172023.pdf" type="application/pdf" class="w-full h-auto" style="min-height:100%;" />
+          <h2 class="text-2xl font-semibold mb-4 text-center">
+            <a href="NTC Partner Report Final 10172023.pdf" target="_blank" class="hover:underline">NTC Partner Report Final</a>
+            <span class="block text-sm text-gray-500 md:hidden">Tap title to view PDF</span>
+          </h2>
+          <div class="relative w-full" style="padding-top: 75%;">
+            <embed src="NTC Partner Report Final 10172023.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" />
           </div>
         </div>
 
         <!-- PPR 2024 Q2 Report Card -->
         <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
-          <h2 class="text-2xl font-semibold mb-4 text-center">PPR 2024 Q2 Report</h2>
-          <div class="w-full h-[60vh] overflow-auto">
-            <embed src="PPR_2024Q2.pdf" type="application/pdf" class="w-full h-auto" style="min-height:100%;" />
+          <h2 class="text-2xl font-semibold mb-4 text-center">
+            <a href="PPR_2024Q2.pdf" target="_blank" class="hover:underline">PPR 2024 Q2 Report</a>
+            <span class="block text-sm text-gray-500 md:hidden">Tap title to view PDF</span>
+          </h2>
+          <div class="relative w-full" style="padding-top: 75%;">
+            <embed src="PPR_2024Q2.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" />
           </div>
         </div>
 
