@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | Diego Alexis Perez</title>
+
+  <!-- Tailwind + Helvetica stack -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Helvetica', 'Arial', 'sans-serif'],
+            body: ['Helvetica', 'Arial', 'sans-serif'],
+          },
+          fontSize: {
+            base: ['1.125rem', { lineHeight: '1.75rem' }],
+            lg: ['1.5rem', { lineHeight: '2rem' }],
+            xl: ['2rem', { lineHeight: '1' }],
+            '5xl': ['4rem', { lineHeight: '1' }],
+            '6xl': ['5rem', { lineHeight: '1' }]
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      margin: 0;
+      position: relative;
+      background-color: #ffffff;
+      color: #1f2937;
+      overflow-x: hidden;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    .wave-bg path {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .wave1 { animation: waveMove1 10s ease-in-out infinite alternate; }
+    .wave2 { animation: waveMove2 12s ease-in-out infinite alternate; }
+    @keyframes waveMove1 {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(30px, 15px) scale(1.05); }
+    }
+    @keyframes waveMove2 {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(-30px, -15px) scale(1.05); }
+    }
+  </style>
+</head>
+<body class="h-screen">
+  <!-- full-bleed animated background -->
+  <div class="absolute inset-0 -z-10 wave-bg">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none" class="w-full h-full">
+      <defs>
+        <filter id="grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+          <feColorMatrix type="saturate" values="0"/>
+          <feComposite operator="in" in2="SourceGraphic"/>
+        </filter>
+      </defs>
+      <path class="wave1" d="M0,300 C200,200 400,350 600,250 L800,300 L800,600 0,600Z" fill="#999999" filter="url(#grain)" opacity="0.8"/>
+      <path class="wave2" d="M0,250 C150,300 450,200 800,300 L800,600 0,600Z" fill="#999999" filter="url(#grain)" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <div class="relative flex flex-col h-full">
+    <!-- HEADER -->
+    <div class="pt-6 pb-2 flex justify-center">
+      <img src="name_logo.png" alt="Diego Alexis Perez logo" class="w-48 md:w-64 lg:w-80 h-auto object-contain" />
+    </div>
+    <nav class="pb-4 px-6 flex justify-center gap-x-6 text-base md:text-xl leading-tight">
+      <a href="index.html#about" class="hover:text-gray-600">Home</a>
+      <a href="Diego_Perez_Resume_June_2025.pdf" target="_blank" class="hover:text-gray-600">Resume</a>
+      <a href="portfolio.html" class="text-black font-bold underline underline-offset-4">Portfolio</a>
+      <a href="https://www.linkedin.com/in/diegoperez956/" target="_blank" class="hover:text-gray-600">LinkedIn</a>
+    </nav>
+
+    <main class="flex-1 p-10 overflow-auto">
+      <div class="max-w-4xl mx-auto space-y-8">
+
+        <!-- Power BI Dashboard Card -->
+        <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
+          <h2 class="text-2xl font-semibold mb-4 text-center">Interactive Atlas Dashboard</h2>
+          <div class="flex justify-center">
+            <iframe title="Atlas_Dashboard" class="w-full h-[60vh] max-h-[600px]" src="https://app.powerbi.com/view?r=eyJrIjoiNjUxNGQyYjQtZWE1OS00MTNkLWJkOGQtMGMwYjVmYTU0OTAzIiwidCI6IjMxYmYwMzA0LTZkZTgtNDdhZi04ZjZhLTYyMzYwZmE0ZDgwYiJ9" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- RYM Project Card -->
+        <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
+          <h2 class="text-2xl font-semibold mb-4 text-center">RateYourMusic Deep Dive</h2>
+          <div class="flex justify-center">
+            <img src="RYM_Project.png" alt="RateYourMusic Dashboard" class="w-full h-auto object-contain max-h-[60vh] max-w-full" />
+          </div>
+        </div>
+
+        <!-- ALICE Correlations Presentation Card -->
+        <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
+          <h2 class="text-2xl font-semibold mb-4 text-center">ALICE Correlations Presentation</h2>
+          <div class="relative w-full" style="padding-top: 75%;">
+            <embed src="Disparities Unveiled Stronger Correlations Between ALICE Households and Hispanic or Latino Communities.pptx.pdf.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" />
+          </div>
+        </div>
+
+        <!-- NTC Partner Report Card -->
+        <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
+          <h2 class="text-2xl font-semibold mb-4 text-center">NTC Partner Report Final</h2>
+          <div class="relative w-full" style="padding-top: 75%;">
+            <embed src="NTC Partner Report Final 10172023.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" />
+          </div>
+        </div>
+
+        <!-- PPR 2024 Q2 Report Card -->
+        <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
+          <h2 class="text-2xl font-semibold mb-4 text-center">PPR 2024 Q2 Report</h2>
+          <div class="relative w-full" style="padding-top: 75%;">
+            <embed src="PPR_2024Q2.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" />
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>
