@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diego Alexis Perez</title>
+
+  <!-- Tailwind + Helvetica stack -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Helvetica', 'Arial', 'sans-serif'],
+            body: ['Helvetica', 'Arial', 'sans-serif'],
+          },
+          fontSize: {
+            base: ['1.125rem', { lineHeight: '1.75rem' }],
+            lg: ['1.5rem', { lineHeight: '2rem' }],
+            xl: ['2rem', { lineHeight: '1' }],
+            '5xl': ['4rem', { lineHeight: '1' }],
+            '6xl': ['5rem', { lineHeight: '1' }]
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      margin: 0;
+      position: relative;
+      background-color: #ffffff;
+      color: #1f2937; /* gray‑800 */
+      overflow-x: hidden;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    .wave-bg path {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .wave1 { animation: waveMove1 10s ease-in-out infinite alternate; }
+    .wave2 { animation: waveMove2 12s ease-in-out infinite alternate; }
+    @keyframes waveMove1 {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(30px, 15px) scale(1.05); }
+    }
+    @keyframes waveMove2 {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(-30px, -15px) scale(1.05); }
+    }
+  </style>
+</head>
+
+<body class="h-screen">
+  <!-- full‑bleed animated background -->
+  <div class="absolute inset-0 -z-10 wave-bg">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 800 600"
+         preserveAspectRatio="none"
+         class="w-full h-full">
+      <defs>
+        <filter id="grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+          <feColorMatrix type="saturate" values="0"/>
+          <feComposite operator="in" in2="SourceGraphic"/>
+        </filter>
+      </defs>
+      <path class="wave1" d="M0,300 C200,200 400,350 600,250 L800,300 L800,600 0,600Z"
+            fill="#999999" filter="url(#grain)" opacity="0.8"/>
+      <path class="wave2" d="M0,250 C150,300 450,200 800,300 L800,600 0,600Z"
+            fill="#999999" filter="url(#grain)" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <div class="relative flex flex-col h-full">
+    <!-- HEADER -->
+    <div class="pt-3 pb-1 flex justify-center">
+      <img src="name_logo.png"
+           alt="Diego Alexis Perez logo"
+           class="w-48 md:w-64 lg:w-80 h-auto object-contain"
+      />
+    </div>
+    <nav class="pb-1 flex justify-center space-x-8 text-xl">
+      <a href="#about" class="text-black font-bold underline underline-offset-4">About Me</a>
+      <a href="Diego_Perez_Resume_June_2025.pdf" target="_blank" class="hover:text-gray-600">Resume</a>
+      <a href="#works" class="hover:text-gray-600">Selected Works</a>
+      <a href="https://www.linkedin.com/in/diegoperez956/" target="_blank" class="hover:text-gray-600">LinkedIn</a>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 grid grid-cols-1 md:grid-cols-12 gap-6 p-10 overflow-auto">
+      <!-- LEFT COLUMN -->
+      <aside class="col-span-1 md:col-span-4 flex flex-col items-center text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm shadow-md">
+        <img src="selfie.jpeg"
+             alt="Diego Perez"
+             class="w-36 h-36 rounded-full mb-4 border-2 border-gray-300"/>
+        <ul class="text-lg space-y-2">
+          <li class="font-semibold">
+            MS in Data Science<br/>
+            <span class="font-normal">University of Texas</span>
+          </li>
+          <li class="font-semibold">
+            MBA in Analytics<br/>
+            <span class="font-normal">UTRGV</span>
+          </li>
+          <li class="font-semibold">
+            BA in Sport Analytics<br/>
+            <span class="font-normal">Rice University</span>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- RIGHT COLUMN -->
+      <section id="about" class="col-span-1 md:col-span-8 space-y-6 text-xl p-6 rounded-xl bg-white/50 backdrop-blur-sm shadow-md">
+        <div class="bg-gray-100 border-l-4 border-gray-400 pl-4 pr-3 py-3 rounded-md">
+          <p class="italic">
+            “All models are wrong, but some are useful.” – George E. P. Box
+          </p>
+        </div>
+
+        <p>
+          Since the dawn of humanity, we’ve been pattern‑recognizing our way to survival: spotting footprints by watering holes, reading cloud shapes for coming storms, and tracking game across the savannah. It’s an instinct we’ve honed for millennia.
+        </p>
+        <p>
+          Hi there! I’m Diego, a data analyst and software engineer who loves turning raw numbers into stories you can actually read. I’ve built everything from 
+          <span class="inline-block bg-gray-200 px-2 py-1 rounded-full">Power BI</span> 
+          dashboards that unlocked new fundraising insights to 
+          <span class="inline-block bg-gray-200 px-2 py-1 rounded-full">Python</span> 
+          scripts that automate quarterly reports. Along the way I’ve picked up 
+          <span class="inline-block bg-gray-200 px-2 py-1 rounded-full">R</span>, 
+          <span class="inline-block bg-gray-200 px-2 py-1 rounded-full">JavaScript</span>, and 
+          <span class="inline-block bg-gray-200 px-2 py-1 rounded-full">Tableau</span>, 
+          but my true comfort zone is whatever chart helps people say, “Oh, that makes sense!”
+        </p>
+        <p>
+          I grew up in the Rio Grande Valley, Texas, where I was raised by Mexican immigrants that instilled a hard-working attitude early on in my life. Outside of work you’ll find me nose‑deep in experimental music and art or mid‑rep at the gym. Those passions keep me curious, creative, and always on the hunt for patterns both in data and in life.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
