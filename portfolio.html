@@ -36,24 +36,14 @@
       overflow-x: hidden;
       font-family: Helvetica, Arial, sans-serif;
     }
-    .wave-bg path {
-      transform-box: fill-box;
-      transform-origin: center;
-    }
+    .wave-bg path { transform-box: fill-box; transform-origin: center; }
     .wave1 { animation: waveMove1 10s ease-in-out infinite alternate; }
     .wave2 { animation: waveMove2 12s ease-in-out infinite alternate; }
-    @keyframes waveMove1 {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(30px, 15px) scale(1.05); }
-    }
-    @keyframes waveMove2 {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(-30px, -15px) scale(1.05); }
-    }
+    @keyframes waveMove1 { from { transform: translate(0,0) scale(1); } to { transform: translate(30px,15px) scale(1.05); } }
+    @keyframes waveMove2 { from { transform: translate(0,0) scale(1); } to { transform: translate(-30px,-15px) scale(1.05); } }
   </style>
 </head>
 <body class="h-screen">
-  <!-- full-bleed animated background -->
   <div class="absolute inset-0 -z-10 wave-bg">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none" class="w-full h-full">
       <defs>
@@ -69,7 +59,6 @@
   </div>
 
   <div class="relative flex flex-col h-full">
-    <!-- HEADER -->
     <div class="pt-6 pb-2 flex justify-center">
       <img src="name_logo.png" alt="Diego Alexis Perez logo" class="w-48 md:w-64 lg:w-80 h-auto object-contain" />
     </div>
@@ -102,24 +91,24 @@
         <!-- ALICE Correlations Presentation Card -->
         <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
           <h2 class="text-2xl font-semibold mb-4 text-center">ALICE Correlations Presentation</h2>
-          <div class="relative w-full overflow-auto" style="padding-top: 75%;">
-            <iframe src="Disparities Unveiled Stronger Correlations Between ALICE Households and Hispanic or Latino Communities.pptx.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" frameborder="0" scrolling="yes"></iframe>
+          <div class="w-full h-[60vh] overflow-auto">
+            <embed src="Disparities Unveiled Stronger Correlations Between ALICE Households and Hispanic or Latino Communities.pptx.pdf" type="application/pdf" class="w-full h-auto" style="min-height:100%;" />
           </div>
         </div>
 
         <!-- NTC Partner Report Card -->
         <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
           <h2 class="text-2xl font-semibold mb-4 text-center">NTC Partner Report Final</h2>
-          <div class="relative w-full overflow-auto" style="padding-top: 75%;">
-            <iframe src="NTC Partner Report Final 10172023.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" frameborder="0" scrolling="yes"></iframe>
+          <div class="w-full h-[60vh] overflow-auto">
+            <embed src="NTC Partner Report Final 10172023.pdf" type="application/pdf" class="w-full h-auto" style="min-height:100%;" />
           </div>
         </div>
 
         <!-- PPR 2024 Q2 Report Card -->
         <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
           <h2 class="text-2xl font-semibold mb-4 text-center">PPR 2024 Q2 Report</h2>
-          <div class="relative w-full overflow-auto" style="padding-top: 75%;">
-            <iframe src="PPR_2024Q2.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" frameborder="0" scrolling="yes"></iframe>
+          <div class="w-full h-[60vh] overflow-auto">
+            <embed src="PPR_2024Q2.pdf" type="application/pdf" class="w-full h-auto" style="min-height:100%;" />
           </div>
         </div>
 
