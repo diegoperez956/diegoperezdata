@@ -4,8 +4,6 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio | Diego Alexis Perez</title>
-
-  <!-- Tailwind + Helvetica stack -->
   <script>
     tailwind.config = {
       theme: {
@@ -26,25 +24,11 @@
     }
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    body { margin: 0; position: relative; background-color: #ffffff; color: #1f2937; overflow-x: hidden; font-family: Helvetica, Arial, sans-serif; }
-    .wave-bg path { transform-box: fill-box; transform-origin: center; }
-    .wave1 { animation: waveMove1 10s ease-in-out infinite alternate; }
-    .wave2 { animation: waveMove2 12s ease-in-out infinite alternate; }
-    @keyframes waveMove1 { from { transform: translate(0,0) scale(1); } to { transform: translate(30px,15px) scale(1.05); } }
-    @keyframes waveMove2 { from { transform: translate(0,0) scale(1); } to { transform: translate(-30px,-15px) scale(1.05); } }
-  </style>
+  <link rel="stylesheet" href="/styles/site.css"/>
 </head>
-<body class="h-screen">
-  <!-- Mobile disclaimer -->
-  <div id="mobile-disclaimer" class="block md:hidden bg-yellow-100 text-yellow-800 p-4 text-center font-medium">
-    If you’re on mobile, tap the title to view the PDF
-  </div>
-
-  <!-- full-bleed animated background -->
-  <div class="absolute inset-0 -z-10 wave-bg">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none" class="w-full h-full">
+<body class="min-h-screen">
+  <div class="wave-backdrop">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none">
       <defs>
         <filter id="grain">
           <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
@@ -57,22 +41,30 @@
     </svg>
   </div>
 
-  <div class="relative flex flex-col h-full">
-    <!-- HEADER -->
-    <div class="pt-6 pb-2 flex justify-center">
-      <img src="name_logo.png" alt="Diego Alexis Perez logo" class="w-48 md:w-64 lg:w-80 h-auto object-contain" />
-    </div>
-    <nav class="pb-4 px-6 flex justify-center gap-x-6 text-base md:text-xl leading-tight">
-      <a href="index.html" class="hover:text-gray-600">Home</a>
-      <a href="Diego_Perez_Resume_June_2025.pdf" target="_blank" class="hover:text-gray-600">Resume</a>
-      <a href="portfolio.html" class="text-black font-bold underline underline-offset-4">Portfolio</a>
-      <a href="https://www.linkedin.com/in/diegoperez956/" target="_blank" class="hover:text-gray-600">LinkedIn</a>
+  <header class="site-header">
+    <a class="site-header__logo" href="/">
+      <img src="/name_logo.png" alt="Diego Perez logo"/>
+    </a>
+    <span class="site-header__label">dataviz / graphicdesign.</span>
+    <nav class="site-header__utils" aria-label="Site">
+      <a href="/Diego_Perez_Resume_June_2025.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="https://github.com/diegoperez956" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/diegoperez956/" target="_blank" rel="noopener">LinkedIn</a>
     </nav>
+  </header>
 
-    <main class="flex-1 p-10 overflow-auto">
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="/" >Home</a>
+    <a href="/portfolio/" class="is-active">Portfolio</a>
+  </nav>
+
+  <div class="relative flex flex-col flex-1">
+    <div id="mobile-disclaimer" class="block md:hidden bg-yellow-100 text-yellow-800 p-4 text-center font-medium mt-6 mx-4 rounded-xl">
+      If you’re on mobile, tap the title to view the PDF
+    </div>
+
+    <main class="flex-1 relative p-6 md:p-10 mt-8 md:mt-12 overflow-auto">
       <div class="max-w-4xl mx-auto space-y-8">
-
-        <!-- Power BI Dashboard Card -->
         <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
           <h2 class="text-2xl font-semibold mb-4 text-center">Interactive Prison Populations Dashboard</h2>
           <div class="flex justify-center">
@@ -80,7 +72,6 @@
           </div>
         </div>
 
-        <!-- Power BI Dashboard Card -->
         <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
           <h2 class="text-2xl font-semibold mb-4 text-center">Interactive Atlas Dashboard</h2>
           <div class="flex justify-center">
@@ -88,41 +79,37 @@
           </div>
         </div>
 
-        <!-- RYM Project Card -->
         <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
           <h2 class="text-2xl font-semibold mb-4 text-center">RateYourMusic Deep Dive</h2>
           <div class="flex justify-center">
-            <img src="RYM_Project.png" alt="RateYourMusic Dashboard" class="w-full h-auto object-contain max-h-[60vh] max-w-full" />
+            <img src="/RYM_Project.png" alt="RateYourMusic Dashboard" class="w-full h-auto object-contain max-h-[60vh] max-w-full" />
           </div>
         </div>
 
-        <!-- ALICE Correlations Presentation Card -->
         <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
           <h2 class="text-2xl font-semibold mb-4 text-center">
-            <a href="Disparities Unveiled Stronger Correlations Between ALICE Households and Hispanic or Latino Communities.pptx.pdf" target="_blank" class="hover:underline">ALICE Correlations Presentation</a>
+            <a href="/Disparities Unveiled Stronger Correlations Between ALICE Households and Hispanic or Latino Communities.pptx.pdf" target="_blank" class="hover:underline">ALICE Correlations Presentation</a>
           </h2>
           <div class="relative w-full" style="padding-top: 75%;">
-            <embed src="Disparities Unveiled Stronger Correlations Between ALICE Households and Hispanic or Latino Communities.pptx.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" />
+            <embed src="/Disparities Unveiled Stronger Correlations Between ALICE Households and Hispanic or Latino Communities.pptx.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" />
           </div>
         </div>
 
-        <!-- NTC Partner Report Card -->
         <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
           <h2 class="text-2xl font-semibold mb-4 text-center">
-            <a href="NTC Partner Report Final 10172023.pdf" target="_blank" class="hover:underline">NTC Partner Report Final</a>
+            <a href="/NTC Partner Report Final 10172023.pdf" target="_blank" class="hover:underline">NTC Partner Report Final</a>
           </h2>
           <div class="relative w-full" style="padding-top: 75%;">
-            <embed src="NTC Partner Report Final 10172023.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" />
+            <embed src="/NTC Partner Report Final 10172023.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" />
           </div>
         </div>
 
-        <!-- PPR 2024 Q2 Report Card -->
         <div class="bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
           <h2 class="text-2xl font-semibold mb-4 text-center">
-            <a href="PPR_2024Q2.pdf" target="_blank" class="hover:underline">PPR 2024 Q2 Report</a>
+            <a href="/PPR_2024Q2.pdf" target="_blank" class="hover:underline">PPR 2024 Q2 Report</a>
           </h2>
           <div class="relative w-full" style="padding-top: 75%;">
-            <embed src="PPR_2024Q2.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" />
+            <embed src="/PPR_2024Q2.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full" />
           </div>
         </div>
 
@@ -131,7 +118,6 @@
   </div>
 
   <script>
-    // Hide mobile disclaimer after 12 seconds
     document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {
         var banner = document.getElementById('mobile-disclaimer');

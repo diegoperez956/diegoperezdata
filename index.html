@@ -26,40 +26,14 @@
     }
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    body {
-      margin: 0;
-      position: relative;
-      background-color: #ffffff;
-      color: #1f2937; /* gray‑800 */
-      overflow-x: hidden;
-      font-family: Helvetica, Arial, sans-serif;
-    }
-    .wave-bg path {
-      transform-box: fill-box;
-      transform-origin: center;
-    }
-    .wave1 { animation: waveMove1 10s ease-in-out infinite alternate; }
-    .wave2 { animation: waveMove2 12s ease-in-out infinite alternate; }
-    @keyframes waveMove1 {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(30px, 15px) scale(1.05); }
-    }
-    @keyframes waveMove2 {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(-30px, -15px) scale(1.05); }
-    }
-  </style>
+  <link rel="stylesheet" href="/styles/site.css"/>
 </head>
 
-<body class="h-screen">
-  <!-- full‑bleed animated background -->
-  <div class="absolute inset-0 -z-10 wave-bg">
+<body class="min-h-screen">
+  <div class="wave-backdrop">
     <svg xmlns="http://www.w3.org/2000/svg"
          viewBox="0 0 800 600"
-         preserveAspectRatio="none"
-         class="w-full h-full">
+         preserveAspectRatio="none">
       <defs>
         <filter id="grain">
           <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
@@ -73,23 +47,23 @@
             fill="#999999" filter="url(#grain)" opacity="0.5"/>
     </svg>
   </div>
-
-  <div class="relative flex flex-col h-full">
-    <!-- HEADER -->
-    <div class="pt-6 pb-2 flex justify-center">
-      <img src="name_logo.png"
-           alt="Diego Alexis Perez logo"
-           class="w-48 md:w-64 lg:w-80 h-auto object-contain"
-      />
-    </div>
-    <nav class="pb-4 px-6 flex justify-center gap-x-6 text-base md:text-xl leading-tight">
-        <a href="index.html" class="text-black font-bold underline underline-offset-4">Home</a>
-        <a href="Diego_Perez_Resume_June_2025.pdf" target="_blank" class="hover:text-gray-600">Resume</a>
-        <a href="portfolio.html" class="hover:text-gray-600">Portfolio</a>
-        <a href="https://www.linkedin.com/in/diegoperez956/" target="_blank" class="hover:text-gray-600">LinkedIn</a>
+  <header class="site-header">
+    <a class="site-header__logo" href="/">
+      <img src="/name_logo.png" alt="Diego Perez logo"/>
+    </a>
+    <span class="site-header__label">dataviz / graphicdesign.</span>
+    <nav class="site-header__utils" aria-label="Site">
+      <a href="/Diego_Perez_Resume_June_2025.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="https://github.com/diegoperez956" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/diegoperez956/" target="_blank" rel="noopener">LinkedIn</a>
     </nav>
-    <!-- MAIN CONTENT -->
-    <main class="flex-1 grid grid-cols-1 md:grid-cols-12 gap-6 p-10 overflow-auto">
+  </header>
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="/" class="is-active">Home</a>
+    <a href="/portfolio/">Portfolio</a>
+  </nav>
+  <div class="relative flex flex-col flex-1">
+    <main class="flex-1 relative grid grid-cols-1 md:grid-cols-12 gap-6 p-6 md:p-10 mt-10 md:mt-12 overflow-auto">
       <!-- LEFT COLUMN -->
       <aside class="col-span-1 md:col-span-4 flex flex-col items-center text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm shadow-md">
         <img src="selfie.jpeg"
