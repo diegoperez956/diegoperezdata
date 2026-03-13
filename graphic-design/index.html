@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Graphic Design | Diego Alexis Perez</title>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Helvetica', 'Arial', 'sans-serif'],
+            body: ['Helvetica', 'Arial', 'sans-serif'],
+          },
+          fontSize: {
+            base: ['1.125rem', { lineHeight: '1.75rem' }],
+            lg: ['1.5rem', { lineHeight: '2rem' }],
+            xl: ['2rem', { lineHeight: '1' }],
+            '5xl': ['4rem', { lineHeight: '1' }],
+            '6xl': ['5rem', { lineHeight: '1' }]
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/styles/site.css"/>
+</head>
+<body class="min-h-screen page-graphic-design">
+  <div class="wave-backdrop">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none">
+      <defs>
+        <filter id="grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+          <feColorMatrix type="saturate" values="0"/>
+          <feComposite operator="in" in2="SourceGraphic"/>
+        </filter>
+      </defs>
+      <path class="wave1" d="M0,300 C200,200 400,350 600,250 L800,300 L800,600 0,600Z" fill="#999999" filter="url(#grain)" opacity="0.8"/>
+      <path class="wave2" d="M0,250 C150,300 450,200 800,300 L800,600 0,600Z" fill="#999999" filter="url(#grain)" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <header class="site-header">
+    <a class="site-header__logo" href="/">
+      <img src="/name_logo.png" alt="Diego Perez logo"/>
+    </a>
+    <span class="site-header__label">dataviz / graphicdesign.</span>
+    <nav class="site-header__utils" aria-label="Site">
+      <a href="/Diego_Perez_Resume_June_2025.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="https://github.com/diegoperez956" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/diegoperez956/" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </header>
+
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="/">Home</a>
+    <a href="/data-viz/">Data Viz</a>
+    <a href="/graphic-design/" class="is-active">Graphic Design</a>
+  </nav>
+
+  <div class="relative flex flex-col flex-1 page-shell">
+    <main class="collection-main flex-1 relative p-6 md:p-10 mt-8 md:mt-12 overflow-auto">
+      <h1 class="sr-only">Graphic Design</h1>
+      <div class="collection-grid max-w-6xl mx-auto">
+        <div class="graphic-gallery">
+          <a class="portfolio-panel graphic-card" href="/graphic-design/Add a heading.png" target="_blank" rel="noopener" aria-label="Open Add a heading graphic">
+            <div class="graphic-card__frame">
+              <img src="/graphic-design/Add a heading.png" alt="Graphic design poster reading Nos conocimos en linea" loading="lazy"/>
+            </div>
+          </a>
+
+          <a class="portfolio-panel graphic-card" href="/graphic-design/WE MET ONLINE.png" target="_blank" rel="noopener" aria-label="Open We met online graphic">
+            <div class="graphic-card__frame">
+              <img src="/graphic-design/WE MET ONLINE.png" alt="Graphic design poster reading we met online" loading="lazy"/>
+            </div>
+          </a>
+
+          <a class="portfolio-panel graphic-card" href="/graphic-design/SUBCOMMANDANTE MARCOS.png" target="_blank" rel="noopener" aria-label="Open Subcomandante Marcos graphic">
+            <div class="graphic-card__frame">
+              <img src="/graphic-design/SUBCOMMANDANTE MARCOS.png" alt="Graphic design poster for Subcomandante Marcos" loading="lazy"/>
+            </div>
+          </a>
+
+          <a class="portfolio-panel graphic-card" href="/graphic-design/Untitled design (1).png" target="_blank" rel="noopener" aria-label="Open untitled design one">
+            <div class="graphic-card__frame">
+              <img src="/graphic-design/Untitled design (1).png" alt="Abstract green circular design" loading="lazy"/>
+            </div>
+          </a>
+
+          <a class="portfolio-panel graphic-card" href="/graphic-design/Untitled design (2).png" target="_blank" rel="noopener" aria-label="Open untitled design two">
+            <div class="graphic-card__frame">
+              <img src="/graphic-design/Untitled design (2).png" alt="Abstract pink and cyan design" loading="lazy"/>
+            </div>
+          </a>
+
+          <a class="portfolio-panel graphic-card" href="/graphic-design/Untitled design (3).png" target="_blank" rel="noopener" aria-label="Open untitled design three">
+            <div class="graphic-card__frame">
+              <img src="/graphic-design/Untitled design (3).png" alt="Black and white collage design" loading="lazy"/>
+            </div>
+          </a>
+
+          <a class="portfolio-panel graphic-card" href="/graphic-design/Copy of No me importa qual quier pinche frontera necesito cruzar para estar contigo otra vez. Dios puso muros para escalar, y si me dejarias adentro de tu corzaon pudiemos escalar tu alma hasta el.png" target="_blank" rel="noopener" aria-label="Open frontera graphic">
+            <div class="graphic-card__frame">
+              <img src="/graphic-design/Copy of No me importa qual quier pinche frontera necesito cruzar para estar contigo otra vez. Dios puso muros para escalar, y si me dejarias adentro de tu corzaon pudiemos escalar tu alma hasta el.png" alt="Graphic design composition with geometric blocks" loading="lazy"/>
+            </div>
+          </a>
+
+          <a class="portfolio-panel graphic-card graphic-card--small" href="/graphic-design/image.png" target="_blank" rel="noopener" aria-label="Open orange figure graphic">
+            <div class="graphic-card__frame">
+              <img src="/graphic-design/image.png" alt="Graphic design image of an orange figure" loading="lazy"/>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

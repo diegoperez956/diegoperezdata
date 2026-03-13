@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Viz | Diego Alexis Perez</title>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Helvetica', 'Arial', 'sans-serif'],
+            body: ['Helvetica', 'Arial', 'sans-serif'],
+          },
+          fontSize: {
+            base: ['1.125rem', { lineHeight: '1.75rem' }],
+            lg: ['1.5rem', { lineHeight: '2rem' }],
+            xl: ['2rem', { lineHeight: '1' }],
+            '5xl': ['4rem', { lineHeight: '1' }],
+            '6xl': ['5rem', { lineHeight: '1' }]
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/styles/site.css"/>
+</head>
+<body class="min-h-screen page-data-viz">
+  <div class="wave-backdrop">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none">
+      <defs>
+        <filter id="grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+          <feColorMatrix type="saturate" values="0"/>
+          <feComposite operator="in" in2="SourceGraphic"/>
+        </filter>
+      </defs>
+      <path class="wave1" d="M0,300 C200,200 400,350 600,250 L800,300 L800,600 0,600Z" fill="#999999" filter="url(#grain)" opacity="0.8"/>
+      <path class="wave2" d="M0,250 C150,300 450,200 800,300 L800,600 0,600Z" fill="#999999" filter="url(#grain)" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <header class="site-header">
+    <a class="site-header__logo" href="/">
+      <img src="/name_logo.png" alt="Diego Perez logo"/>
+    </a>
+    <span class="site-header__label">dataviz / graphicdesign.</span>
+    <nav class="site-header__utils" aria-label="Site">
+      <a href="/Diego_Perez_Resume_June_2025.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="https://github.com/diegoperez956" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/diegoperez956/" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </header>
+
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="/">Home</a>
+    <a href="/data-viz/" class="is-active">Data Viz</a>
+    <a href="/graphic-design/">Graphic Design</a>
+  </nav>
+
+  <div class="relative flex flex-col flex-1 page-shell">
+    <main class="collection-main flex-1 relative p-6 md:p-10 mt-8 md:mt-12 overflow-auto">
+      <h1 class="sr-only">Data Viz</h1>
+      <div class="collection-grid max-w-5xl mx-auto space-y-8">
+        <article class="portfolio-panel bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
+          <h2 class="portfolio-panel__title text-2xl font-semibold mb-4 text-center">Interactive Prison Populations Dashboard</h2>
+          <div class="portfolio-panel__frame flex justify-center">
+            <iframe title="Prison Dashboard" class="w-full h-[60vh] max-h-[600px]" src="https://app.powerbi.com/view?r=eyJrIjoiNjVhZTBmMzItM2RmOS00MzFjLWFjNDEtOTc1NWE3ZTNjMTFjIiwidCI6IjMxYmYwMzA0LTZkZTgtNDdhZi04ZjZhLTYyMzYwZmE0ZDgwYiJ9" loading="lazy" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </article>
+
+        <article class="portfolio-panel bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
+          <h2 class="portfolio-panel__title text-2xl font-semibold mb-4 text-center">Interactive Atlas Dashboard</h2>
+          <div class="portfolio-panel__frame flex justify-center">
+            <iframe title="Atlas Dashboard" class="w-full h-[60vh] max-h-[600px]" src="https://app.powerbi.com/view?r=eyJrIjoiNjUxNGQyYjQtZWE1OS00MTNkLWJkOGQtMGMwYjVmYTU0OTAzIiwidCI6IjMxYmYwMzA0LTZkZTgtNDdhZi04ZjZhLTYyMzYwZmE0ZDgwYiJ9" loading="lazy" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </article>
+
+        <article class="portfolio-panel bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
+          <h2 class="portfolio-panel__title text-2xl font-semibold mb-4 text-center">RateYourMusic Deep Dive</h2>
+          <div class="portfolio-panel__frame flex justify-center">
+            <img src="/RYM_Project.png" alt="RateYourMusic Dashboard" class="w-full h-auto object-contain max-h-[60vh] max-w-full" loading="lazy"/>
+          </div>
+        </article>
+
+        <article class="portfolio-panel bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
+          <h2 class="portfolio-panel__title text-2xl font-semibold mb-4 text-center">We&apos;re all connected.</h2>
+          <div class="portfolio-panel__frame flex justify-center">
+            <img src="/We%E2%80%99re%20all%20connected..png" alt="We’re all connected data visualization poster" class="w-full h-auto object-contain max-h-[72vh] max-w-full" loading="lazy"/>
+          </div>
+        </article>
+
+        <article class="portfolio-panel bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
+          <h2 class="portfolio-panel__title text-2xl font-semibold mb-4 text-center">
+            <a href="/Disparities%20Unveiled%20Stronger%20Correlations%20Between%20ALICE%20Households%20and%20Hispanic%20or%20Latino%20Communities.pptx.pdf" target="_blank" rel="noopener">ALICE Correlations Presentation</a>
+          </h2>
+          <div class="portfolio-panel__document relative w-full" style="padding-top: 75%;">
+            <embed src="/Disparities%20Unveiled%20Stronger%20Correlations%20Between%20ALICE%20Households%20and%20Hispanic%20or%20Latino%20Communities.pptx.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full"/>
+          </div>
+        </article>
+
+        <article class="portfolio-panel bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
+          <h2 class="portfolio-panel__title text-2xl font-semibold mb-4 text-center">
+            <a href="/NTC%20Partner%20Report%20Final%2010172023.pdf" target="_blank" rel="noopener">NTC Partner Report Final</a>
+          </h2>
+          <div class="portfolio-panel__document relative w-full" style="padding-top: 75%;">
+            <embed src="/NTC%20Partner%20Report%20Final%2010172023.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full"/>
+          </div>
+        </article>
+
+        <article class="portfolio-panel bg-white/50 backdrop-blur-sm rounded-xl shadow-md p-6">
+          <h2 class="portfolio-panel__title text-2xl font-semibold mb-4 text-center">
+            <a href="/PPR_2024Q2.pdf" target="_blank" rel="noopener">PPR 2024 Q2 Report</a>
+          </h2>
+          <div class="portfolio-panel__document relative w-full" style="padding-top: 75%;">
+            <embed src="/PPR_2024Q2.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full"/>
+          </div>
+        </article>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

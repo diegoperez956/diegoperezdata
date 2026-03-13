@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="/styles/site.css"/>
 </head>
 
-<body class="min-h-screen">
+<body class="min-h-screen page-home">
   <div class="wave-backdrop">
     <svg xmlns="http://www.w3.org/2000/svg"
          viewBox="0 0 800 600"
@@ -60,16 +60,17 @@
   </header>
   <nav class="primary-nav" aria-label="Primary">
     <a href="/" class="is-active">Home</a>
-    <a href="/portfolio/">Portfolio</a>
+    <a href="/data-viz/">Data Viz</a>
+    <a href="/graphic-design/">Graphic Design</a>
   </nav>
-  <div class="relative flex flex-col flex-1">
-    <main class="flex-1 relative grid grid-cols-1 md:grid-cols-12 gap-6 p-6 md:p-10 mt-10 md:mt-12 overflow-auto">
+  <div class="relative flex flex-col flex-1 page-shell">
+    <main class="home-grid flex-1 relative grid grid-cols-1 md:grid-cols-12 gap-6 p-6 md:p-10 mt-10 md:mt-12 overflow-auto">
       <!-- LEFT COLUMN -->
-      <aside class="col-span-1 md:col-span-4 flex flex-col items-center text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm shadow-md">
+      <aside class="profile-panel col-span-1 md:col-span-4 flex flex-col items-center text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm shadow-md">
         <img src="selfie.jpeg"
              alt="Diego Perez"
              class="w-36 h-36 rounded-full mb-4 border-2 border-gray-300"/>
-        <ul class="text-lg space-y-2">
+        <ul class="profile-panel__list text-lg space-y-2">
           <li class="font-semibold">
             MS in Data Science<br/>
             <span class="font-normal">University of Texas</span>
@@ -86,8 +87,8 @@
       </aside>
 
       <!-- RIGHT COLUMN -->
-      <section id="about" class="col-span-1 md:col-span-8 space-y-6 text-xl p-6 rounded-xl bg-white/50 backdrop-blur-sm shadow-md">
-        <div class="bg-gray-100 border-l-4 border-gray-400 pl-4 pr-3 py-3 rounded-md">
+      <section id="about" class="story-panel col-span-1 md:col-span-8 space-y-6 text-xl p-6 rounded-xl bg-white/50 backdrop-blur-sm shadow-md">
+        <div class="quote-panel bg-gray-100 border-l-4 border-gray-400 pl-4 pr-3 py-3 rounded-md">
           <p class="italic">
             “All models are wrong, but some are useful.” – George E. P. Box
           </p>
@@ -97,7 +98,7 @@
           Since the dawn of humanity, we’ve been pattern‑recognizing our way to survival: spotting footprints by watering holes, reading cloud shapes for coming storms, and tracking game across the savannah. It’s an instinct we’ve honed for millennia.
         </p>
         <p>
-          Hi there! I’m Diego, a data analyst and software engineer who loves turning raw numbers into stories you can actually read. I’ve built everything from 
+          Hi there! I’m Diego, a data scientist who loves turning raw numbers into stories you can actually read. I’ve built everything from 
           <span class="inline-block bg-gray-200 px-2 py-1 rounded-full">Power BI</span> 
           dashboards that unlocked new fundraising insights to 
           <span class="inline-block bg-gray-200 px-2 py-1 rounded-full">Python</span> 
