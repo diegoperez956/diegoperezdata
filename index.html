@@ -1,118 +1,565 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Diego Alexis Perez</title>
-
-  <!-- Tailwind + Helvetica stack -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ['Helvetica', 'Arial', 'sans-serif'],
-            body: ['Helvetica', 'Arial', 'sans-serif'],
-          },
-          fontSize: {
-            base: ['1.125rem', { lineHeight: '1.75rem' }],
-            lg: ['1.5rem', { lineHeight: '2rem' }],
-            xl: ['2rem', { lineHeight: '1' }],
-            '5xl': ['4rem', { lineHeight: '1' }],
-            '6xl': ['5rem', { lineHeight: '1' }]
-          }
-        }
-      }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#282828"/>
+<title>Index of /diegoperezdata</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23282828'/%3E%3Ctext x='3' y='12' font-family='monospace' font-size='12' fill='%23ebdbb2'%3ED%3C/text%3E%3C/svg%3E"/>
+<link rel="preload" as="image" href="/selfie.png"/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/JetBrainsMono-Regular.woff2" crossorigin/>
+<style>
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  html {
+    min-height: 100%;
+    background: #282828;
+  }
+  body {
+    background: #282828;
+    color: #ebdbb2;
+    font-family: 'JetBrains Mono', "Courier New", Courier, monospace;
+    font-size: 13px;
+    margin: 0;
+    padding: clamp(20px, 3vw, 48px);
+    padding-bottom: 80px;
+    max-width: none;
+    box-sizing: border-box;
+    min-height: 100vh;
+  }
+  h1 {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+  }
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 24px 0 8px 0;
+  }
+  a {
+    color: #83a598;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  a:visited { color: #d3869b; }
+  a:hover { color: #fe8019; }
+  hr {
+    border: 0;
+    border-top: 1px solid #504945;
+    margin: 6px 0;
+  }
+  .wrap {
+    display: grid;
+    grid-template-columns: minmax(280px, 28%) 1fr;
+    gap: clamp(24px, 4vw, 64px);
+    align-items: start;
+  }
+  .left {
+    position: sticky;
+    top: 32px;
+    align-self: start;
+  }
+  .listing {
+    white-space: pre;
+    line-height: 1.7;
+    font-size: 13px;
+  }
+  .listing .row.active a {
+    color: #fe8019;
+  }
+  .headers { font-weight: bold; }
+  .right {
+    min-height: 60vh;
+    border-left: 0;
+    padding-left: clamp(20px, 2.5vw, 40px);
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    contain: layout paint;
+  }
+  .split .sub-focus {
+    contain: layout paint;
+  }
+  .pdf-thumb {
+    display: block;
+    max-width: 100%;
+    max-height: 70vh;
+    margin: 0 auto 12px;
+    cursor: pointer;
+  }
+  .pdf-actions { margin-bottom: 12px; font-size: 12px; }
+  .pdf-actions a { margin-right: 16px; }
+  .right h1.section-title {
+    font-size: 22px;
+    margin-top: 0;
+  }
+  .right p {
+    line-height: 1.7;
+    margin: 0 0 14px 0;
+    max-width: 60ch;
+  }
+  .right img.cover {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    max-height: 50vh;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 16px;
+  }
+  .item-list {
+    white-space: pre;
+    line-height: 1.7;
+  }
+  .focus-frame {
+    width: 100%;
+  }
+  .split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .split .sub-focus { min-width: 0; }
+  .sub-list .sub-row.active a { color: #fe8019; }
+  @media (min-width: 1100px) {
+    .split {
+      grid-template-columns: minmax(200px, 260px) 1fr;
+      gap: 32px;
+      align-items: start;
     }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/styles/site.css"/>
+    .sub-list {
+      position: sticky;
+      top: 0;
+      max-height: calc(100vh - 96px);
+      overflow-y: auto;
+    }
+  }
+  .focus-frame iframe,
+  .focus-frame embed {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    max-height: 78vh;
+    border: 0;
+    background: #282828;
+  }
+  .focus-frame img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 78vh;
+    height: auto;
+    margin: 0 auto;
+    border: 0;
+    object-fit: contain;
+  }
+  .back {
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .meta {
+    font-size: 12px;
+    color: #444;
+    margin-bottom: 12px;
+  }
+  .pill { display: inline-block; padding: 0 4px; border: 0; margin-right: 4px; font-size: 11px; }
+  .mkdir {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #928374;
+  }
+  .mkdir input {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #504945;
+    color: #ebdbb2;
+    font-family: inherit;
+    font-size: 13px;
+    padding: 2px 4px;
+    outline: none;
+    width: 160px;
+  }
+  .mkdir input:focus { border-bottom-color: #fe8019; }
+  @media (max-width: 800px) {
+    body { padding: 20px; }
+    .wrap { grid-template-columns: 1fr; gap: 24px; }
+    .left { position: static; }
+    .right { border-left: 0; padding-left: 0; border-top: 0; padding-top: 16px; max-height: none; }
+  }
+</style>
 </head>
+<body>
 
-<body class="min-h-screen page-home">
-  <div class="wave-backdrop">
-    <svg xmlns="http://www.w3.org/2000/svg"
-         viewBox="0 0 800 600"
-         preserveAspectRatio="none">
-      <defs>
-        <filter id="grain">
-          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
-          <feColorMatrix type="saturate" values="0"/>
-          <feComposite operator="in" in2="SourceGraphic"/>
-        </filter>
-      </defs>
-      <path class="wave1" d="M0,300 C200,200 400,350 600,250 L800,300 L800,600 0,600Z"
-            fill="#999999" filter="url(#grain)" opacity="0.8"/>
-      <path class="wave2" d="M0,250 C150,300 450,200 800,300 L800,600 0,600Z"
-            fill="#999999" filter="url(#grain)" opacity="0.5"/>
-    </svg>
+<h1>Index of /diegoperezdata</h1>
+
+<div class="wrap">
+  <div class="left">
+    <div class="listing" id="headers"></div>
+    <hr/>
+    <div class="listing" id="rows"></div>
+    <hr/>
+    <form id="mkdir-form" class="mkdir">
+      <span>$ mkdir </span><input type="text" id="mkdir-input" autocomplete="off" spellcheck="false" placeholder="new-folder"/>
+    </form>
   </div>
-  <header class="site-header">
-    <a class="site-header__logo" href="/">
-      <img src="/name_logo.png" alt="Diego Perez logo"/>
-    </a>
-    <span class="site-header__label">dataviz / graphicdesign.</span>
-    <nav class="site-header__utils" aria-label="Site">
-      <a href="/Diego_Perez_Resume_June_2025.pdf" target="_blank" rel="noopener" title="Download resume (PDF)">CV</a>
-      <a href="https://github.com/diegoperez956" target="_blank" rel="noopener" title="GitHub profile">GitHub</a>
-      <a href="https://www.linkedin.com/in/diegoperez956/" target="_blank" rel="noopener" title="LinkedIn profile">LinkedIn</a>
-    </nav>
-  </header>
-  <nav class="primary-nav" aria-label="Primary">
-    <a href="/" class="is-active">Home</a>
-    <a href="/data-viz/">Data Viz</a>
-    <a href="/graphic-design/">Graphic Design</a>
-  </nav>
-  <div class="relative flex flex-col flex-1 page-shell">
-    <main class="home-grid flex-1 relative grid grid-cols-1 md:grid-cols-12 gap-6 p-6 md:p-10 mt-10 md:mt-12 overflow-auto">
-      <!-- LEFT COLUMN -->
-      <aside class="profile-panel col-span-1 md:col-span-4 flex flex-col items-center text-center p-6">
-        <img src="selfie.jpeg"
-             alt="Diego Perez"
-             class="w-36 h-36 rounded-full mb-4 border-2 border-gray-300"/>
-        <ul class="profile-panel__list text-lg space-y-2">
-          <li class="font-semibold">
-            MS in Data Science<br/>
-            <span class="font-normal">University of Texas</span>
-          </li>
-          <li class="font-semibold">
-            MBA in Analytics<br/>
-            <span class="font-normal">UTRGV</span>
-          </li>
-          <li class="font-semibold">
-            BA in Sport Analytics<br/>
-            <span class="font-normal">Rice University</span>
-          </li>
-        </ul>
-      </aside>
 
-      <!-- RIGHT COLUMN -->
-      <section id="about" class="story-panel col-span-1 md:col-span-8 space-y-6 text-xl p-6">
-        <div class="quote-panel">
-          <p class="text-2xl font-light italic tracking-tight opacity-70">
-            “All models are wrong, but some are useful.” – George E. P. Box
-          </p>
-        </div>
+  <div class="right" id="pane"></div>
+</div>
 
-        <p>
-          Since the dawn of humanity, we’ve been pattern‑recognizing our way to survival: spotting footprints by watering holes, reading cloud shapes for coming storms, and tracking game across the savannah. It’s an instinct we’ve honed for millennia.
-        </p>
-        <p>
-          Hi there! I’m Diego, a data scientist who loves turning raw numbers into stories you can actually read. I’ve built everything from 
-          <span class="skill-inline">Power BI</span> 
-          dashboards that unlocked new fundraising insights to 
-          <span class="skill-inline">Python</span> 
-          scripts that automate quarterly reports. Along the way I’ve picked up 
-          <span class="skill-inline">R</span>, 
-          <span class="skill-inline">JavaScript</span>, and 
-          <span class="skill-inline">Tableau</span>, 
-          but my true comfort zone is whatever chart helps people say, “Oh, that makes sense!”
-        </p>
-        <p>
-          I grew up in the Rio Grande Valley, Texas, where I was raised by Mexican immigrants that instilled a hard-working attitude early on in my life. Outside of work you’ll find me nose‑deep in experimental music and art or mid‑rep at the gym. Those passions keep me curious, creative, and always on the hunt for patterns both in data and in life.
-        </p>
-      </section>
-    </main>
-  </div>
+<script>
+const dataViz = [
+  { id: 'prison', title: 'Interactive Prison Populations Dashboard', type: 'iframe',
+    src: 'https://app.powerbi.com/view?r=eyJrIjoiNjVhZTBmMzItM2RmOS00MzFjLWFjNDEtOTc1NWE3ZTNjMTFjIiwidCI6IjMxYmYwMzA0LTZkZTgtNDdhZi04ZjZhLTYyMzYwZmE0ZDgwYiJ9' },
+  { id: 'atlas', title: 'Interactive Atlas Dashboard', type: 'iframe',
+    src: 'https://app.powerbi.com/view?r=eyJrIjoiNjUxNGQyYjQtZWE1OS00MTNkLWJkOGQtMGMwYjVmYTU0OTAzIiwidCI6IjMxYmYwMzA0LTZkZTgtNDdhZi04ZjZhLTYyMzYwZmE0ZDgwYiJ9' },
+  { id: 'rym', title: 'RateYourMusic Deep Dive', type: 'image', src: '/RYM_Project.webp' },
+  { id: 'connected', title: "We're all connected.", type: 'image', src: '/connected.webp' },
+  { id: 'alice', title: 'ALICE Correlations Presentation', type: 'pdf',
+    src: '/Disparities%20Unveiled%20Stronger%20Correlations%20Between%20ALICE%20Households%20and%20Hispanic%20or%20Latino%20Communities.pptx.pdf',
+    thumb: '/alice-thumb.webp' },
+  { id: 'ntc', title: 'NTC Partner Report Final', type: 'pdf', src: '/NTC%20Partner%20Report%20Final%2010172023.pdf', thumb: '/ntc-thumb.webp' },
+  { id: 'ppr', title: 'PPR 2024 Q2 Report', type: 'pdf', src: '/PPR_2024Q2.pdf', thumb: '/ppr-thumb.webp' }
+];
+
+const graphicDesign = [
+  { id: 'heading', title: 'WE MET ONLINE', src: '/graphic-design/Add a heading.webp' },
+  { id: 'metonline', title: 'WE MET ONLINE 2', src: '/graphic-design/WE MET ONLINE.webp' },
+  { id: 'marcos', title: 'SUBCOMMANDANTE MARCOS', src: '/graphic-design/SUBCOMMANDANTE MARCOS.webp' },
+  { id: 'untitled1', title: 'Bubbles', src: '/graphic-design/Untitled design (1).webp' },
+  { id: 'untitled2', title: 'Topologos', src: '/graphic-design/Untitled design (2).webp' },
+  { id: 'untitled3', title: 'Mestizo 1', src: '/graphic-design/Untitled design (3).webp' },
+  { id: 'frontera', title: 'No me importa', src: '/graphic-design/no me importa.webp' },
+  { id: 'orange', title: 'luckyme', src: '/graphic-design/image.webp' }
+];
+
+const pane = document.getElementById('pane');
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+const prefetched = new Set();
+function prefetchHeavy(section) {
+  const target = section === 'data-viz' ? '/RYM_Project.webp'
+    : section === 'graphic-design' ? '/graphic-design/SUBCOMMANDANTE MARCOS.webp'
+    : null;
+  if (!target || prefetched.has(target)) return;
+  prefetched.add(target);
+  const link = document.createElement('link');
+  link.rel = 'prefetch';
+  link.as = 'image';
+  link.href = encodeURI(target);
+  document.head.appendChild(link);
+}
+
+function render(section, focusId) {
+  if (section === 'home') {
+    pane.innerHTML = `
+      <img class="cover" src="/selfie.png" alt="Diego Perez" width="420" height="420" loading="eager" decoding="async"/>
+    `;
+  } else if (section === 'colophon') {
+    pane.innerHTML = `
+      <h1 class="section-title">Index of /colophon</h1>
+      <p class="meta">last-modified: 2026-05-11</p>
+      <p>Set in JetBrains Mono, self-hosted.</p>
+      <p>Aesthetic reference: Maison Martin Margiela archive site, ca. 2007.</p>
+      <p style="margin-top:24px">This site is a directory, not a portfolio. Each entry is a record; the index is the work.</p>
+    `;
+  } else if (section === 'about') {
+    pane.innerHTML = `
+      <h1 class="section-title">about-me</h1>
+      <p class="meta">last-modified: 2026-04-22</p>
+      <p><em>"All models are wrong, but some are useful." &mdash; George E. P. Box</em></p>
+      <p>Since the dawn of humanity, we've been pattern-recognizing our way to survival: spotting footprints by watering holes, reading cloud shapes for coming storms, tracking game across the savannah. An instinct honed for millennia.</p>
+      <p>Hi. I'm Diego, a data scientist who turns raw numbers into stories people can actually read. I've built Power BI dashboards that unlocked new fundraising insights and Python scripts that automate quarterly reports. Along the way I picked up R, JavaScript, and Tableau, but my comfort zone is whatever chart helps people say, "Oh, that makes sense."</p>
+      <p>I grew up in the Rio Grande Valley, Texas, raised by Mexican immigrants who instilled a hard-working attitude early in life. Outside of work you'll find me nose-deep in experimental music and art, or mid-rep at the gym. Those passions keep me curious, creative, and hunting for patterns &mdash; in data and in life.</p>
+      <h2>education</h2>
+      <p>
+        MS &nbsp;Data Science &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;University of Texas<br/>
+        MBA Analytics &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UTRGV<br/>
+        BA &nbsp;Sport Analytics &nbsp;&nbsp;&nbsp;Rice University
+      </p>
+      <h2>stack</h2>
+      <p>
+        <span class="pill">python</span><span class="pill">r</span><span class="pill">sql</span><span class="pill">javascript</span><span class="pill">power-bi</span><span class="pill">tableau</span><span class="pill">d3</span>
+      </p>
+    `;
+  } else if (section === 'contact') {
+    pane.innerHTML = `
+      <h1 class="section-title">contact</h1>
+      <p class="meta">last-modified: 2024-08-03</p>
+      <p>
+        email &nbsp;&nbsp;&nbsp;<a href="mailto:diegoperez749@gmail.com">diegoperez749@gmail.com</a><br/>
+        github &nbsp;&nbsp;<a href="https://github.com/diegoperez956" target="_blank" rel="noopener">github.com/diegoperez956</a><br/>
+        linkedin <a href="https://www.linkedin.com/in/diegoperez956/" target="_blank" rel="noopener">linkedin.com/in/diegoperez956</a><br/>
+        resume &nbsp;&nbsp;<a href="/Diego_Perez_Resume_June_2025.pdf" target="_blank" rel="noopener">Diego_Perez_Resume_June_2025.pdf</a>
+      </p>
+      <p>
+        location &nbsp;Rio Grande Valley, TX<br/>
+      </p>
+    `;
+  } else if (section === 'data-viz' || section === 'graphic-design') {
+    renderCollection(section, focusId);
+  }
+  highlightActive(section);
+}
+
+function itemFrameHtml(item, section) {
+  if (section === 'data-viz') {
+    if (item.type === 'iframe') return `<iframe src="${item.src}" loading="lazy" frameborder="0" allowfullscreen></iframe>`;
+    if (item.type === 'pdf') return `
+      <img class="pdf-thumb" src="${item.thumb}" alt="${escapeHtml(item.title)} preview" loading="lazy" decoding="async"/>
+      <div class="pdf-actions">
+        <a href="${item.src}" target="_blank" rel="noopener">open pdf &rarr;</a>
+        <a data-load-pdf="${item.src}">view inline</a>
+      </div>`;
+    return `<img src="${encodeURI(item.src)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async"/>`;
+  }
+  return `<img src="${encodeURI(item.src)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async"/>`;
+}
+
+function wireDeferredLoaders(root) {
+  root.querySelectorAll('.frame-skeleton[data-iframe-src]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = btn.dataset.iframeSrc;
+      iframe.loading = 'lazy';
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allowfullscreen', '');
+      btn.replaceWith(iframe);
+    });
+  });
+  root.querySelectorAll('a[data-load-pdf]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const src = a.dataset.loadPdf;
+      const frame = a.closest('.focus-frame');
+      if (!frame) return;
+      frame.innerHTML = `<embed src="${src}" type="application/pdf"/>`;
+    });
+  });
+}
+
+const itemLocked = { 'data-viz': null, 'graphic-design': null };
+
+function renderCollection(section, focusId) {
+  const items = section === 'data-viz' ? dataViz : graphicDesign;
+  const dirLabel = section === 'data-viz' ? '/data-viz' : '/graphic-design';
+  const dirDate = section === 'data-viz' ? '2026-03-18' : '2025-11-09';
+  const active = focusId || itemLocked[section] || items[0].id;
+  itemLocked[section] = active;
+
+  let rows = '';
+  items.forEach(d => {
+    const typeLabel = section === 'data-viz'
+      ? (d.type === 'iframe' ? 'dashboard' : d.type === 'pdf' ? 'pdf' : 'image')
+      : 'image';
+    const cls = d.id === active ? 'sub-row active' : 'sub-row';
+    rows += `<div class="${cls}" data-item="${d.id}"><a data-item="${d.id}">${escapeHtml(d.title)}</a>  <span class="meta">${typeLabel}</span></div>`;
+  });
+
+  const item = items.find(x => x.id === active);
+  pane.innerHTML = `
+    <h1 class="section-title">Index of ${dirLabel}</h1>
+    <p class="meta">${items.length} entries &middot; last-modified: ${dirDate}</p>
+    <div class="split">
+      <div class="sub-list">${rows}</div>
+      <div class="sub-focus">
+        <h2 style="margin-top:0">${escapeHtml(item.title)}</h2>
+        <div class="focus-frame">${itemFrameHtml(item, section)}</div>
+      </div>
+    </div>
+  `;
+
+  const focusEl = pane.querySelector('.sub-focus');
+  const listEl = pane.querySelector('.sub-list');
+  let subLocked = active;
+  wireDeferredLoaders(focusEl);
+
+  function paintFocus(id) {
+    const it = items.find(x => x.id === id);
+    if (!it) return;
+    focusEl.innerHTML = `<h2 style="margin-top:0">${escapeHtml(it.title)}</h2><div class="focus-frame">${itemFrameHtml(it, section)}</div>`;
+    wireDeferredLoaders(focusEl);
+    listEl.querySelectorAll('.sub-row').forEach(r => r.classList.toggle('active', r.dataset.item === id));
+  }
+
+  listEl.querySelectorAll('.sub-row').forEach(row => {
+    row.addEventListener('mouseenter', () => paintFocus(row.dataset.item));
+    row.addEventListener('click', (e) => {
+      e.preventDefault();
+      subLocked = row.dataset.item;
+      itemLocked[section] = subLocked;
+      paintFocus(subLocked);
+    });
+  });
+  listEl.addEventListener('mouseleave', () => paintFocus(subLocked));
+}
+window.render = render;
+
+function highlightActive(section) {
+  document.querySelectorAll('#rows .row').forEach(r => {
+    r.classList.toggle('active', r.dataset.section === section);
+  });
+}
+
+let locked = null;
+
+function wireRow(row) {
+  const section = row.dataset.section;
+  if (!section) return;
+  row.addEventListener('mouseenter', () => {
+    prefetchHeavy(section);
+    if (!locked) render(section);
+  });
+  row.addEventListener('click', (e) => {
+    e.preventDefault();
+    locked = section;
+    render(section);
+  });
+}
+
+const fileRows = [
+  { name: 'data-viz/',       type: 'directory', date: '2026-03-18', section: 'data-viz' },
+  { name: 'graphic-design/', type: 'directory', date: '2025-11-09', section: 'graphic-design' },
+  { name: 'about-me',        type: 'file',      date: '2026-04-22', section: 'about' },
+  { name: 'colophon',        type: 'file',      date: '2026-05-11', section: 'colophon' },
+  { name: 'contact',         type: 'file',      date: '2024-08-03', section: 'contact' },
+  { name: 'github.url',      type: 'link',      date: '2026-05-10', href: 'https://github.com/diegoperez956' },
+  { name: 'linkedin.url',    type: 'link',      date: '2025-09-14', href: 'https://www.linkedin.com/in/diegoperez956/' },
+  { name: 'resume.pdf',      type: 'file',      date: '2025-06-12', href: '/Diego_Perez_Resume_June_2025.pdf' }
+];
+
+const userDirs = JSON.parse(localStorage.getItem('userDirs') || '[]');
+
+const NAME_W = 17, TYPE_W = 12;
+const sortState = { col: null, dir: 1 };
+
+function padRight(s, n) { s = String(s); return s + ' '.repeat(Math.max(0, n - s.length)); }
+
+function rowHtml(r) {
+  const nameGap = ' '.repeat(Math.max(1, NAME_W - r.name.length));
+  const typeCell = padRight(r.type, TYPE_W);
+  const dateCell = r.date || '-';
+  if (r.section) {
+    return `<span class="row" data-section="${r.section}"><a data-section="${r.section}">${escapeHtml(r.name)}</a>${nameGap}${typeCell}${dateCell}</span>`;
+  }
+  if (r.href) {
+    const ext = r.href.startsWith('http');
+    const attrs = ext ? ' target="_blank" rel="noopener"' : '';
+    return `<span class="row"><a href="${r.href}"${attrs}>${escapeHtml(r.name)}</a>${nameGap}${typeCell}${dateCell}</span>`;
+  }
+  return `<span class="row">${padRight(r.name, NAME_W)}${typeCell}${dateCell}</span>`;
+}
+
+function sortedRows() {
+  const parent = { name: '../', type: 'parent', date: null, section: 'home' };
+  const userRows = userDirs.map(d => ({ name: d.name + '/', type: 'directory', date: d.date, section: 'user:' + d.name }));
+  let rest = [...fileRows, ...userRows];
+  if (sortState.col) {
+    const key = sortState.col;
+    rest.sort((a, b) => {
+      let av = a[key] || '', bv = b[key] || '';
+      if (key === 'date') { av = av || '0000-00-00'; bv = bv || '0000-00-00'; }
+      return av < bv ? -sortState.dir : av > bv ? sortState.dir : 0;
+    });
+  } else {
+    const isDir = r => r.type === 'directory';
+    rest.sort((a, b) => (isDir(b) - isDir(a)) || a.name.localeCompare(b.name));
+  }
+  return [parent, ...rest];
+}
+
+function renderRows() {
+  const rowsEl = document.getElementById('rows');
+  rowsEl.innerHTML = sortedRows().map(rowHtml).join('\n');
+  rowsEl.querySelectorAll('.row[data-section]').forEach(wireRow);
+}
+
+function arrow(col) {
+  if (sortState.col !== col) return '';
+  return sortState.dir === 1 ? ' ▲' : ' ▼';
+}
+
+function renderHeaders() {
+  const headersEl = document.getElementById('headers');
+  const namePad = ' '.repeat(Math.max(1, NAME_W - ('Name'.length + arrow('name').length)));
+  const typePad = ' '.repeat(Math.max(1, TYPE_W - ('Type'.length + arrow('type').length)));
+  headersEl.innerHTML = `<span class="headers"><a data-sort="name">Name${arrow('name')}</a>${namePad}<a data-sort="type">Type${arrow('type')}</a>${typePad}<a data-sort="date">Updated${arrow('date')}</a></span>`;
+  headersEl.querySelectorAll('a[data-sort]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const col = a.dataset.sort;
+      if (sortState.col === col) sortState.dir = -sortState.dir;
+      else { sortState.col = col; sortState.dir = 1; }
+      renderHeaders();
+      renderRows();
+    });
+  });
+}
+
+renderHeaders();
+renderRows();
+
+document.querySelector('#rows').addEventListener('mouseleave', () => {
+  if (locked) render(locked);
+});
+
+document.getElementById('mkdir-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const input = document.getElementById('mkdir-input');
+  const raw = input.value.trim().replace(/[^a-zA-Z0-9_\-]/g, '-');
+  if (!raw) return;
+  if (userDirs.some(d => d.name === raw)) { input.value = ''; return; }
+  const today = new Date().toISOString().slice(0,10);
+  userDirs.push({ name: raw, date: today });
+  localStorage.setItem('userDirs', JSON.stringify(userDirs));
+  input.value = '';
+  renderRows();
+});
+
+const originalRender = render;
+render = function(section, focusId) {
+  if (section && section.startsWith('user:')) {
+    const name = section.slice(5);
+    pane.innerHTML = `
+      <h1 class="section-title">Index of /${escapeHtml(name)}</h1>
+      <p class="meta">0 entries &middot; created ${(userDirs.find(d=>d.name===name)||{}).date||''}</p>
+      <p class="meta">empty directory.</p>
+      <p><a data-rmdir="${escapeHtml(name)}">rm -rf ${escapeHtml(name)}/</a></p>
+    `;
+    pane.querySelector('a[data-rmdir]').addEventListener('click', (e) => {
+      e.preventDefault();
+      const i = userDirs.findIndex(d => d.name === name);
+      if (i >= 0) {
+        userDirs.splice(i, 1);
+        localStorage.setItem('userDirs', JSON.stringify(userDirs));
+        renderRows();
+        locked = null;
+        originalRender('home');
+      }
+    });
+    highlightActive(section);
+    return;
+  }
+  return originalRender(section, focusId);
+};
+window.render = render;
+
+render('home');
+</script>
+
 </body>
 </html>
