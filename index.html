@@ -327,33 +327,6 @@
     .focus-frame iframe, .focus-frame embed { aspect-ratio: 4 / 3; max-height: 70vh; }
     .focus-frame img { max-height: 60vh; }
     .pdf-thumb { max-height: 50vh; }
-    .split { grid-template-columns: 1fr; gap: 12px; }
-    .sub-list {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      gap: 6px;
-      padding: 4px 0 10px 0;
-      margin-bottom: 4px;
-      border-bottom: 1px solid #504945;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-    }
-    .sub-list .sub-row {
-      flex: 0 0 auto;
-      padding: 6px 12px;
-      min-height: 0;
-      background: rgba(80, 73, 69, 0.18);
-      border: 1px solid #504945;
-      border-radius: 2px;
-      white-space: nowrap;
-    }
-    .sub-list .sub-row.active {
-      background: rgba(254, 128, 25, 0.12);
-      border-color: #fe8019;
-    }
-    .sub-list .sub-row .meta { display: none; }
-    .sub-list .sub-row .sub-row-label { text-decoration: none; }
   }
   @media (max-width: 800px) and (orientation: landscape), (max-height: 500px) {
     body { padding: 12px; padding-bottom: 40px; }
