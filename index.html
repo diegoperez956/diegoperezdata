@@ -158,28 +158,44 @@
     gap: 24px;
   }
   .split .sub-focus { min-width: 0; }
+  .sub-list { overflow-x: auto; }
+  .sub-list .listing { white-space: normal; }
+  .sub-list .headers, .sub-list .row {
+    display: block;
+    line-height: 1.5;
+    padding: 2px 0;
+  }
+  .sub-list .name-cell,
+  .sub-list .type-cell,
+  .sub-list .date-cell {
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+  }
+  .sub-list .name-cell {
+    width: 30ch;
+    padding-right: 1ch;
+    word-break: break-word;
+  }
+  .sub-list .type-cell { width: 12ch; }
+  .sub-list .date-cell { white-space: nowrap; }
   .sub-list .sub-row {
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(254, 128, 25, 0.18);
-    user-select: none;
-    padding: 4px 0;
-    min-height: 28px;
     touch-action: manipulation;
   }
-  .sub-list .sub-row .sub-row-label {
-    color: #83a598;
-    text-decoration: underline;
-  }
-  .sub-list .sub-row:hover .sub-row-label,
-  .sub-list .sub-row:focus-visible .sub-row-label { color: #fe8019; }
-  .sub-list .sub-row.active .sub-row-label { color: #fe8019; }
+  .sub-list .sub-row a { cursor: pointer; }
   .sub-list .sub-row:focus-visible {
     outline: 2px solid #fe8019;
     outline-offset: 2px;
   }
-  @media (min-width: 1100px) {
+  @media (max-width: 800px) {
+    .sub-list .name-cell { width: 22ch; }
+    .sub-list .type-cell { width: 10ch; }
+  }
+  @media (min-width: 1200px) {
     .split {
-      grid-template-columns: minmax(200px, 260px) 1fr;
+      grid-template-columns: minmax(380px, 460px) 1fr;
       gap: 32px;
       align-items: start;
     }
@@ -321,7 +337,9 @@
     .wrap { grid-template-columns: 1fr; gap: 20px; }
     .left { position: static; }
     .right { border-left: 0; padding-left: 0; border-top: 0; padding-top: 16px; max-height: none; }
-    .listing { font-size: 12px; line-height: 1.6; }
+    .listing { font-size: 12px; line-height: 1.6; overflow-x: auto; }
+    #headers { overflow-x: auto; }
+    .sub-list { font-size: 12px; }
     .right h1.section-title { font-size: 18px; }
     .right img.cover { max-width: 280px; max-height: 60vw; }
     .focus-frame iframe, .focus-frame embed { aspect-ratio: 4 / 3; max-height: 70vh; }
@@ -331,13 +349,15 @@
   @media (max-width: 800px) and (orientation: landscape), (max-height: 500px) {
     body { padding: 12px; padding-bottom: 40px; }
     h1 { font-size: 18px; margin-bottom: 12px; }
-    .wrap { grid-template-columns: minmax(180px, 32%) 1fr; gap: 16px; }
-    .left { position: sticky; top: 12px; }
+    .wrap { grid-template-columns: minmax(260px, 40%) 1fr; gap: 16px; }
+    .left { position: sticky; top: 12px; min-width: 0; }
+    .listing, #headers { overflow-x: auto; }
     .right {
       max-height: calc(100vh - 32px);
       overflow-y: auto;
       padding-left: 16px;
       padding-top: 0;
+      min-width: 0;
     }
     .right img.cover { max-width: 200px; max-height: 50vh; }
     .focus-frame iframe, .focus-frame embed { aspect-ratio: 16 / 9; max-height: 70vh; }
@@ -353,7 +373,7 @@
 <body>
 
 <h1>Index of /diegoperezdata</h1>
-<p class="tagline">Diego Perez &middot; data science / visual systems / AI-assisted analytics workflows</p>
+<p class="tagline">data science / visual systems / AI-assisted analytics workflows</p>
 <p class="hint"># index-style portfolio. hover folders to peek, click to lock one open.</p>
 
 <div class="wrap">
@@ -583,12 +603,19 @@ function wireDeferredLoaders(root) {
       const src = a.dataset.loadPdf;
       const frame = a.closest('.focus-frame');
       if (!frame) return;
-      frame.innerHTML = `<embed src="${src}" type="application/pdf"/>`;
+      frame.innerHTML = `
+        <iframe src="${src}" loading="lazy" allowfullscreen></iframe>
+        <div class="pdf-actions"><a href="${src}" target="_blank" rel="noopener">can't see it? open in new tab &rarr;</a></div>
+      `;
     });
   });
 }
 
 const itemLocked = { 'data-viz': null, 'graphic-design': null };
+const subSortState = {
+  'data-viz':       { col: null, dir: 1 },
+  'graphic-design': { col: null, dir: 1 }
+};
 
 function renderCollection(section, focusId) {
   const items = section === 'data-viz' ? dataViz : graphicDesign;
@@ -600,14 +627,34 @@ function renderCollection(section, focusId) {
   const active = focusId || itemLocked[section] || items[0].id;
   itemLocked[section] = active;
 
-  let rows = '';
-  items.forEach(d => {
-    const typeLabel = section === 'data-viz'
-      ? (d.type === 'iframe' ? 'dashboard' : d.type === 'pdf' ? 'pdf' : 'image')
-      : 'image';
-    const cls = d.id === active ? 'sub-row active' : 'sub-row';
-    rows += `<div class="${cls}" data-item="${d.id}" role="button" tabindex="0"><span class="sub-row-label">${escapeHtml(d.title)}</span>  <span class="meta">${typeLabel}</span></div>`;
-  });
+  const typeOf = d => section === 'data-viz'
+    ? (d.type === 'iframe' ? 'dashboard' : d.type === 'pdf' ? 'pdf' : 'image')
+    : 'image';
+  const subArrow = (col) => {
+    const s = subSortState[section];
+    if (s.col !== col) return '';
+    return s.dir === 1 ? ' ▲' : ' ▼';
+  };
+  const headerHtml = `<a class="name-cell" data-sub-sort="name">Name${subArrow('name')}</a><a class="type-cell" data-sub-sort="type">Type${subArrow('type')}</a><a class="date-cell" data-sub-sort="date">Updated${subArrow('date')}</a>`;
+
+  const sorted = [...items];
+  const s = subSortState[section];
+  if (s.col) {
+    const keyFn = s.col === 'name' ? (d => d.title.toLowerCase())
+                : s.col === 'type' ? (d => typeOf(d))
+                : (d => d.date || dirDate);
+    sorted.sort((a, b) => {
+      const av = keyFn(a), bv = keyFn(b);
+      return av < bv ? -s.dir : av > bv ? s.dir : 0;
+    });
+  }
+
+  const rowSpans = sorted.map(d => {
+    const typeLabel = typeOf(d);
+    const date = d.date || dirDate;
+    const cls = d.id === active ? 'row sub-row active' : 'row sub-row';
+    return `<span class="${cls}" data-item="${d.id}" role="button" tabindex="0"><a class="name-cell" data-item="${d.id}">${escapeHtml(d.title)}</a><span class="type-cell">${typeLabel}</span><span class="date-cell">${date}</span></span>`;
+  }).join('');
 
   const item = items.find(x => x.id === active);
   pane.innerHTML = `
@@ -615,7 +662,11 @@ function renderCollection(section, focusId) {
     <p class="meta">${items.length} entries &middot; last-modified: ${dirDate}</p>
     <p class="blurb" style="color:#a89984;max-width:60ch">${dirNote}</p>
     <div class="split">
-      <div class="sub-list">${rows}</div>
+      <div class="sub-list">
+        <div class="listing"><span class="headers">${headerHtml}</span></div>
+        <hr/>
+        <div class="listing sub-rows">${rowSpans}</div>
+      </div>
       <div class="sub-focus">
         <h2 style="margin-top:0">${escapeHtml(item.title)}</h2>
         ${itemMetaHtml(item)}
@@ -648,6 +699,17 @@ function renderCollection(section, focusId) {
     row.addEventListener('click', activate);
     row.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') activate(e);
+    });
+  });
+  listEl.querySelectorAll('a[data-sub-sort]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const col = a.dataset.subSort;
+      const st = subSortState[section];
+      if (st.col === col) st.dir = -st.dir;
+      else { st.col = col; st.dir = 1; }
+      renderCollection(section, itemLocked[section]);
     });
   });
   if (canHover) listEl.addEventListener('mouseleave', () => paintFocus(subLocked));
