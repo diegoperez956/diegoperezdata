@@ -158,7 +158,25 @@
     gap: 24px;
   }
   .split .sub-focus { min-width: 0; }
-  .sub-list .sub-row.active a { color: #fe8019; }
+  .sub-list .sub-row {
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(254, 128, 25, 0.18);
+    user-select: none;
+    padding: 4px 0;
+    min-height: 28px;
+    touch-action: manipulation;
+  }
+  .sub-list .sub-row .sub-row-label {
+    color: #83a598;
+    text-decoration: underline;
+  }
+  .sub-list .sub-row:hover .sub-row-label,
+  .sub-list .sub-row:focus-visible .sub-row-label { color: #fe8019; }
+  .sub-list .sub-row.active .sub-row-label { color: #fe8019; }
+  .sub-list .sub-row:focus-visible {
+    outline: 2px solid #fe8019;
+    outline-offset: 2px;
+  }
   @media (min-width: 1100px) {
     .split {
       grid-template-columns: minmax(200px, 260px) 1fr;
@@ -309,6 +327,33 @@
     .focus-frame iframe, .focus-frame embed { aspect-ratio: 4 / 3; max-height: 70vh; }
     .focus-frame img { max-height: 60vh; }
     .pdf-thumb { max-height: 50vh; }
+    .split { grid-template-columns: 1fr; gap: 12px; }
+    .sub-list {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 6px;
+      padding: 4px 0 10px 0;
+      margin-bottom: 4px;
+      border-bottom: 1px solid #504945;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .sub-list .sub-row {
+      flex: 0 0 auto;
+      padding: 6px 12px;
+      min-height: 0;
+      background: rgba(80, 73, 69, 0.18);
+      border: 1px solid #504945;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+    .sub-list .sub-row.active {
+      background: rgba(254, 128, 25, 0.12);
+      border-color: #fe8019;
+    }
+    .sub-list .sub-row .meta { display: none; }
+    .sub-list .sub-row .sub-row-label { text-decoration: none; }
   }
   @media (max-width: 800px) and (orientation: landscape), (max-height: 500px) {
     body { padding: 12px; padding-bottom: 40px; }
@@ -358,7 +403,6 @@ const dataViz = [
     src: 'https://app.powerbi.com/view?r=eyJrIjoiNjVhZTBmMzItM2RmOS00MzFjLWFjNDEtOTc1NWE3ZTNjMTFjIiwidCI6IjMxYmYwMzA0LTZkZTgtNDdhZi04ZjZhLTYyMzYwZmE0ZDgwYiJ9',
     medium: 'public-data dashboard',
     stack: ['power bi', 'public data', 'data cleaning'],
-    year: '2026',
     what: 'An interactive public-data dashboard exploring U.S. incarceration patterns across time, place, and demographic groups.',
     why: 'Built to make a heavy policy topic easier to scan, compare, and question.' },
   { id: 'atlas', title: 'Interactive Atlas Dashboard', type: 'iframe',
@@ -373,9 +417,10 @@ const dataViz = [
     what: 'A personal music-data exploration built from rating and genre patterns.',
     why: 'Part taste diary, part cleaning exercise, part proof that even obsession has structure.' },
   { id: 'connected', title: "We're all connected.", type: 'image', src: '/connected.webp',
-    medium: 'static composition',
-    what: 'A static composition exploring connection and density as a visual idea.',
-    why: 'Atmospheric piece, not a case study.' },
+    medium: 'data visualization',
+    stack: ['matplotlib', 'photoshop'],
+    what: 'A static visualization exploring connection and density as a visual idea.',
+    why: 'Network plot used as composition, not case study.' },
   { id: 'alice', title: 'ALICE Correlations Presentation', type: 'pdf',
     src: '/Disparities%20Unveiled%20Stronger%20Correlations%20Between%20ALICE%20Households%20and%20Hispanic%20or%20Latino%20Communities.pptx.pdf',
     thumb: '/alice-thumb.webp',
@@ -386,13 +431,11 @@ const dataViz = [
   { id: 'ntc', title: 'NTC Partner Report Final', type: 'pdf', src: '/NTC%20Partner%20Report%20Final%2010172023.pdf', thumb: '/ntc-thumb.webp',
     medium: 'reporting piece',
     stack: ['power bi', 'report design'],
-    year: '2023',
     what: 'A reporting piece turning program data into a clearer stakeholder narrative.',
     why: 'Built around readability, pacing, and less digging.' },
   { id: 'ppr', title: 'PPR 2024 Q2 Report', type: 'pdf', src: '/PPR_2024Q2.pdf', thumb: '/ppr-thumb.webp',
     medium: 'quarterly performance report',
     stack: ['power bi', 'python', 'report design'],
-    year: '2024',
     what: 'A quarterly performance report designed to make operational trends easier to review.',
     why: 'Not decoration. Less digging.' }
 ];
@@ -400,16 +443,16 @@ const dataViz = [
 const graphicDesign = [
   { id: 'heading', title: 'WE MET ONLINE', src: '/graphic-design/Add a heading.webp',
     medium: 'visual study', stack: ['photoshop'],
-    what: 'A poster sketch in type weight and atmosphere.',
+    what: 'A reflection on how algorithms and digital devices shape relationships today.',
     why: 'Mood first, explanation second.' },
   { id: 'metonline', title: 'WE MET ONLINE 2', src: '/graphic-design/WE MET ONLINE.webp',
     medium: 'visual study', stack: ['photoshop'],
-    what: 'A second pass on the same motif.',
+    what: 'A second pass on the same idea: algorithms and devices as the place where people meet now.',
     why: 'Texture, restraint, slower read.' },
   { id: 'marcos', title: 'SUBCOMMANDANTE MARCOS', src: '/graphic-design/SUBCOMMANDANTE MARCOS.webp',
     medium: 'visual study', stack: ['photoshop'],
-    what: 'A portrait edit and contrast study.',
-    why: 'High-density grain, low-talk composition.' },
+    what: 'A fictional book cover for the Mexican political figure Subcomandante Marcos.',
+    why: 'Imagined publication design, treated as iconography.' },
   { id: 'untitled1', title: 'Bubbles', src: '/graphic-design/Untitled design (1).webp',
     medium: 'visual study', stack: ['photoshop'],
     what: 'Geometry plus noise on a single surface.',
@@ -420,12 +463,12 @@ const graphicDesign = [
     why: 'Found-material composition, restrained typography.' },
   { id: 'untitled3', title: 'Mestizo 1', src: '/graphic-design/Untitled design (3).webp',
     medium: 'visual study', stack: ['photoshop'],
-    what: 'A restrained palette and dense composition.',
-    why: 'A test of what gets carried by texture alone.' },
+    what: 'On Mexican identity and the long shadow of the Revolution.',
+    why: 'The violence and misery that plagued older generations still echoes in the present.' },
   { id: 'frontera', title: 'No me importa', src: '/graphic-design/no me importa.webp',
     medium: 'visual study', stack: ['photoshop'],
-    what: 'A poster sketch built around mood first.',
-    why: 'More atmosphere than explanation.' }
+    what: 'A visual sketch inspired by Pink Floyd\'s Ummagumma.',
+    why: 'Composition study riffing on the album cover\'s recursive frame.' }
 ];
 
 const pane = document.getElementById('pane');
@@ -462,11 +505,6 @@ rio grande valley, tx</pre>
       </blockquote>
       <p class="blurb">I build analytical systems that make messy information usable. Sometimes that means a dashboard. Sometimes a report. Sometimes a weird little website that loads fast and gets out of the way.</p>
       <p class="blurb why">This site is part of the work. A small archive for data projects, visual studies, and useful artifacts.</p>
-      <pre class="whoami" style="margin:14px 0 0 0;line-height:1.7;font-size:12px;color:#7c6f64;">$ ls -1
-selected-work/
-visual-studies/
-about
-contact</pre>
     `;
   } else if (section === 'colophon') {
     pane.innerHTML = `
@@ -548,7 +586,7 @@ function itemFrameHtml(item, section) {
       <img class="pdf-thumb" src="${item.thumb}" alt="${escapeHtml(item.title)} preview" loading="lazy" decoding="async"/>
       <div class="pdf-actions">
         <a href="${item.src}" target="_blank" rel="noopener">open pdf &rarr;</a>
-        <a class="secondary" data-load-pdf="${item.src}">view inline</a>
+        <a class="secondary" href="#" data-load-pdf="${item.src}">view inline</a>
       </div>`;
     return `<img src="${encodeURI(item.src)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async"/>`;
   }
@@ -595,7 +633,7 @@ function renderCollection(section, focusId) {
       ? (d.type === 'iframe' ? 'dashboard' : d.type === 'pdf' ? 'pdf' : 'image')
       : 'image';
     const cls = d.id === active ? 'sub-row active' : 'sub-row';
-    rows += `<div class="${cls}" data-item="${d.id}"><a data-item="${d.id}">${escapeHtml(d.title)}</a>  <span class="meta">${typeLabel}</span></div>`;
+    rows += `<div class="${cls}" data-item="${d.id}" role="button" tabindex="0"><span class="sub-row-label">${escapeHtml(d.title)}</span>  <span class="meta">${typeLabel}</span></div>`;
   });
 
   const item = items.find(x => x.id === active);
@@ -628,11 +666,15 @@ function renderCollection(section, focusId) {
 
   listEl.querySelectorAll('.sub-row').forEach(row => {
     if (canHover) row.addEventListener('mouseenter', () => paintFocus(row.dataset.item));
-    row.addEventListener('click', (e) => {
+    const activate = (e) => {
       e.preventDefault();
       subLocked = row.dataset.item;
       itemLocked[section] = subLocked;
       paintFocus(subLocked);
+    };
+    row.addEventListener('click', activate);
+    row.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') activate(e);
     });
   });
   if (canHover) listEl.addEventListener('mouseleave', () => paintFocus(subLocked));
