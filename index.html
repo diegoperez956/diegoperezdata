@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="theme-color" content="#282828"/>
 <title>Diego Perez · Index of /diegoperezdata</title>
-<meta name="description" content="Diego Perez — data scientist. Dashboards, reports, and graphic design, served as a directory index."/>
+<meta name="description" content="Diego Perez. Data scientist. Dashboards, reports, and graphic design, served as a directory index."/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Diego Perez · Index of /diegoperezdata"/>
 <meta property="og:description" content="Data scientist. Dashboards, reports, and graphic design, served as a directory index."/>
@@ -233,8 +233,58 @@
     font-size: 13px;
     line-height: 1.7;
     color: #ebdbb2;
-    margin: 0 0 10px 0;
+    margin: 0 0 6px 0;
     max-width: 64ch;
+  }
+  .blurb.why { color: #a89984; margin-bottom: 12px; }
+  .label-line {
+    font-size: 11px;
+    color: #928374;
+    margin: -4px 0 10px 0;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+  }
+  .label-line .sep { color: #504945; margin: 0 6px; }
+  .proj-json {
+    margin: 0 0 14px 0;
+    padding: 10px 14px;
+    background: rgba(80, 73, 69, 0.18);
+    border-left: 2px solid #504945;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #ebdbb2;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    max-width: 64ch;
+  }
+  .proj-json .key { color: #fabd2f; }
+  .proj-json .str { color: #b8bb26; }
+  .proj-json .num { color: #d3869b; }
+  .proj-json .punct { color: #7c6f64; }
+  .quote {
+    border-left: 2px solid #504945;
+    padding: 4px 0 4px 14px;
+    margin: 20px 0;
+    color: #a89984;
+    font-style: italic;
+    font-size: 13px;
+    max-width: 56ch;
+    line-height: 1.7;
+  }
+  .quote cite {
+    display: block;
+    font-style: normal;
+    color: #7c6f64;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  .edu {
+    margin: 0 0 14px 0;
+    line-height: 1.8;
+    font-size: 13px;
+    color: #ebdbb2;
+    white-space: pre;
+    overflow-x: auto;
   }
   .stack {
     font-size: 11px;
@@ -306,56 +356,76 @@
 const dataViz = [
   { id: 'prison', title: 'Interactive Prison Populations Dashboard', type: 'iframe',
     src: 'https://app.powerbi.com/view?r=eyJrIjoiNjVhZTBmMzItM2RmOS00MzFjLWFjNDEtOTc1NWE3ZTNjMTFjIiwidCI6IjMxYmYwMzA0LTZkZTgtNDdhZi04ZjZhLTYyMzYwZmE0ZDgwYiJ9',
-    blurb: 'Public-data dashboard on U.S. incarceration across time, geography, and demographic groups. Built to make a heavy policy topic easier to scan, compare, and question.',
-    stack: ['power bi', 'public data', 'data cleaning'] },
+    medium: 'public-data dashboard',
+    stack: ['power bi', 'public data', 'data cleaning'],
+    year: '2026',
+    what: 'An interactive public-data dashboard exploring U.S. incarceration patterns across time, place, and demographic groups.',
+    why: 'Built to make a heavy policy topic easier to scan, compare, and question.' },
   { id: 'atlas', title: 'Interactive Atlas Dashboard', type: 'iframe',
     src: 'https://app.powerbi.com/view?r=eyJrIjoiNjUxNGQyYjQtZWE1OS00MTNkLWJkOGQtMGMwYjVmYTU0OTAzIiwidCI6IjMxYmYwMzA0LTZkZTgtNDdhZi04ZjZhLTYyMzYwZmE0ZDgwYiJ9',
-    blurb: 'A dashboard study in layout, hierarchy, and readable density. Less template BI, more analytical control panel — leaves room for the viewer to think.',
-    stack: ['power bi', 'dashboard design'] },
+    medium: 'dashboard study',
+    stack: ['power bi', 'dashboard design'],
+    what: 'A dashboard study in density, hierarchy, and control-panel logic.',
+    why: 'Less template BI, more analytical instrument.' },
   { id: 'rym', title: 'RateYourMusic Deep Dive', type: 'image', src: '/RYM_Project.webp',
-    blurb: 'Music-data exploration on a RateYourMusic-style dataset: taste, genre, ratings, and patterns in underground / experimental music. Personal obsession turned into a small analytical system.',
-    stack: ['python', 'pandas', 'matplotlib'] },
+    medium: 'personal data exploration',
+    stack: ['python', 'pandas', 'matplotlib'],
+    what: 'A personal music-data exploration built from rating and genre patterns.',
+    why: 'Part taste diary, part cleaning exercise, part proof that even obsession has structure.' },
   { id: 'connected', title: "We're all connected.", type: 'image', src: '/connected.webp',
-    blurb: 'Static visual piece — network-style composition exploring connection and density. Visual, not a case study.',
-    stack: ['image', 'composition'] },
+    medium: 'static composition',
+    what: 'A static composition exploring connection and density as a visual idea.',
+    why: 'Atmospheric piece, not a case study.' },
   { id: 'alice', title: 'ALICE Correlations Presentation', type: 'pdf',
     src: '/Disparities%20Unveiled%20Stronger%20Correlations%20Between%20ALICE%20Households%20and%20Hispanic%20or%20Latino%20Communities.pptx.pdf',
     thumb: '/alice-thumb.webp',
-    blurb: 'Community-needs analysis surfacing ZIP codes with high ALICE-household concentration and practical outreach potential. Built to help nonprofit teams move from broad need to targeted action.',
-    stack: ['python', 'power bi', 'zip-level analysis'] },
+    medium: 'community-needs analysis',
+    stack: ['python', 'power bi', 'zip-level analysis'],
+    what: 'A community-needs analysis surfacing ZIP codes with high ALICE-household concentration and practical outreach potential.',
+    why: 'Built to help nonprofit teams move from "need is everywhere" to "start here."' },
   { id: 'ntc', title: 'NTC Partner Report Final', type: 'pdf', src: '/NTC%20Partner%20Report%20Final%2010172023.pdf', thumb: '/ntc-thumb.webp',
-    blurb: 'Program data turned into a clearer narrative for stakeholders. The numbers stay readable without flattening the context behind them.',
-    stack: ['power bi', 'report design'] },
+    medium: 'reporting piece',
+    stack: ['power bi', 'report design'],
+    year: '2023',
+    what: 'A reporting piece turning program data into a clearer stakeholder narrative.',
+    why: 'Built around readability, pacing, and less digging.' },
   { id: 'ppr', title: 'PPR 2024 Q2 Report', type: 'pdf', src: '/PPR_2024Q2.pdf', thumb: '/ppr-thumb.webp',
-    blurb: 'Quarterly performance report tuned for clarity and pacing. Built so readers see what changed without digging through raw tables.',
-    stack: ['power bi', 'python', 'report design'] }
+    medium: 'quarterly performance report',
+    stack: ['power bi', 'python', 'report design'],
+    year: '2024',
+    what: 'A quarterly performance report designed to make operational trends easier to review.',
+    why: 'Not decoration. Less digging.' }
 ];
 
 const graphicDesign = [
   { id: 'heading', title: 'WE MET ONLINE', src: '/graphic-design/Add a heading.webp',
-    blurb: 'Poster sketch. Type weight and atmosphere first; explanation second.',
-    stack: ['photoshop'] },
+    medium: 'visual study', stack: ['photoshop'],
+    what: 'A poster sketch in type weight and atmosphere.',
+    why: 'Mood first, explanation second.' },
   { id: 'metonline', title: 'WE MET ONLINE 2', src: '/graphic-design/WE MET ONLINE.webp',
-    blurb: 'Second pass on the same motif. Texture, restraint, slower read.',
-    stack: ['photoshop'] },
+    medium: 'visual study', stack: ['photoshop'],
+    what: 'A second pass on the same motif.',
+    why: 'Texture, restraint, slower read.' },
   { id: 'marcos', title: 'SUBCOMMANDANTE MARCOS', src: '/graphic-design/SUBCOMMANDANTE MARCOS.webp',
-    blurb: 'Portrait edit — contrast study, high-density grain, low-talk composition.',
-    stack: ['photoshop'] },
+    medium: 'visual study', stack: ['photoshop'],
+    what: 'A portrait edit and contrast study.',
+    why: 'High-density grain, low-talk composition.' },
   { id: 'untitled1', title: 'Bubbles', src: '/graphic-design/Untitled design (1).webp',
-    blurb: 'Geometry plus noise. A small visual study in how little structure an image needs before it feels intentional.',
-    stack: ['photoshop'] },
+    medium: 'visual study', stack: ['photoshop'],
+    what: 'Geometry plus noise on a single surface.',
+    why: 'How little structure an image needs before it starts to feel intentional.' },
   { id: 'untitled2', title: 'Topologos', src: '/graphic-design/Untitled design (2).webp',
-    blurb: 'Upcyling an old topology textbook I had lying around.',
-    stack: ['photoshop'] },
+    medium: 'visual study', stack: ['photoshop'],
+    what: 'Upcycling an old topology textbook I had lying around.',
+    why: 'Found-material composition, restrained typography.' },
   { id: 'untitled3', title: 'Mestizo 1', src: '/graphic-design/Untitled design (3).webp',
-    blurb: 'Restrained palette, dense composition. A test of what gets carried by texture alone.',
-    stack: ['photoshop'] },
+    medium: 'visual study', stack: ['photoshop'],
+    what: 'A restrained palette and dense composition.',
+    why: 'A test of what gets carried by texture alone.' },
   { id: 'frontera', title: 'No me importa', src: '/graphic-design/no me importa.webp',
-    blurb: 'Frontera-coded poster sketch. Built around mood first.',
-    stack: ['photoshop'] },
-  { id: 'orange', title: 'luckyme', src: '/graphic-design/image.webp',
-    blurb: 'Minimal cover-style edit. Atmosphere over explanation.',
-    stack: ['photoshop'] }
+    medium: 'visual study', stack: ['photoshop'],
+    what: 'A poster sketch built around mood first.',
+    why: 'More atmosphere than explanation.' }
 ];
 
 const pane = document.getElementById('pane');
@@ -383,14 +453,16 @@ function render(section, focusId) {
   if (section === 'home') {
     pane.innerHTML = `
       <img class="cover" src="/selfie.png" alt="Diego Perez" width="420" height="420" loading="eager" decoding="async"/>
-      <pre class="whoami" style="margin:0;line-height:1.7;font-size:13px;white-space:pre-wrap;max-width:62ch;">$ whoami
-diego perez &mdash; data scientist
-rio grande valley, tx
-$ cat ~/positioning.txt
-i build dashboards, analytical workflows, and AI-assisted
-analytics that people actually use. my edge is statistical
-thinking + business context + front-end taste.
-$ ls -1
+      <pre class="whoami" style="margin:8px 0 14px 0;line-height:1.7;font-size:13px;white-space:pre-wrap;max-width:62ch;">$ whoami
+diego perez
+rio grande valley, tx</pre>
+      <blockquote class="quote">
+        &ldquo;An idiot admires complexity. A genius admires simplicity.&rdquo;
+        <cite>Terry A. Davis</cite>
+      </blockquote>
+      <p class="blurb">I build analytical systems that make messy information usable. Sometimes that means a dashboard. Sometimes a report. Sometimes a weird little website that loads fast and gets out of the way.</p>
+      <p class="blurb why">This site is part of the work. A small archive for data projects, visual studies, and useful artifacts.</p>
+      <pre class="whoami" style="margin:14px 0 0 0;line-height:1.7;font-size:12px;color:#7c6f64;">$ ls -1
 selected-work/
 visual-studies/
 about
@@ -400,7 +472,7 @@ contact</pre>
     pane.innerHTML = `
       <h1 class="section-title">Index of /colophon</h1>
       <p class="meta">last-modified: 2026-05-11</p>
-      <p>Built as a static page styled after an Apache <code>mod_autoindex</code> listing &mdash; the default directory index you'd hit on an old web server. The metaphor is the point: a portfolio that reads like a filesystem, not a brochure.</p>
+      <p>Built as a static page styled after an Apache <code>mod_autoindex</code> listing, the default directory index you'd hit on an old web server. The metaphor is the point: a portfolio that reads like a filesystem, not a brochure.</p>
       <p>Set in JetBrains Mono, self-hosted. Plain HTML/CSS/JS, no framework. Gruvbox-ish palette.</p>
       <p>Aesthetic references: Apache index pages ca. 2003, the Yeezy.com directory drop, Maison Martin Margiela archive site ca. 2007.</p>
       <p style="margin-top:24px">This site is a directory, not a portfolio. Each entry is a record; the index is the work.</p>
@@ -409,17 +481,13 @@ contact</pre>
     pane.innerHTML = `
       <h1 class="section-title">about</h1>
       <p class="meta">last-modified: 2026-04-22</p>
-      <p>Hi, I'm Diego. I'm a data scientist who likes the part where messy information becomes something people can actually use.</p>
-      <p>I've worked across dashboards, reporting automation, segmentation, and stakeholder-facing analytics for nonprofit and business teams. My favorite work sits between data science and design: clean enough for business users, strange enough to avoid becoming another dead dashboard.</p>
-      <p>Lately I spend more time wiring AI into the boring parts of the pipeline &mdash; cleanup, QA, draft narratives &mdash; so the analytical thinking gets more room.</p>
-      <p>I'm from the Rio Grande Valley, raised in a Mexican American family, and I bring that mix of practicality and taste into how I work. Outside the spreadsheet I'm usually somewhere between experimental music, old internet design, lifting, and trying to make charts feel less dead.</p>
-      <p><em>"All models are wrong, but some are useful." &mdash; George E. P. Box</em></p>
+      <p>I'm Diego, a data scientist interested in the point where analysis becomes something people can actually use.</p>
+      <p>My work sits between data science, business intelligence, visual design, and workflow automation. I like dashboards that do not feel dead, reports that do not bury the point, and tools that make the next decision easier.</p>
+      <p>I'm from the Rio Grande Valley and grew up in a Mexican American family, which probably explains some of the practicality. Outside of work I'm usually somewhere between experimental music, lifting, old internet design, and trying to make charts feel less sterile.</p>
       <h2>education</h2>
-      <p>
-        MS &nbsp;Data Science &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;University of Texas<br/>
-        MBA Analytics &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UTRGV<br/>
-        BA &nbsp;Sport Analytics &nbsp;&nbsp;&nbsp;Rice University
-      </p>
+      <pre class="edu">MS   Data Science     University of Texas
+MBA  Analytics        UTRGV
+BA   Sport Analytics  Rice University</pre>
       <h2>stack</h2>
       <p>
         <span class="pill">python</span><span class="pill">pandas</span><span class="pill">r</span><span class="pill">sql</span><span class="pill">power-bi</span><span class="pill">tableau</span><span class="pill">javascript</span><span class="pill">d3</span><span class="pill">matplotlib</span>
@@ -429,6 +497,7 @@ contact</pre>
     pane.innerHTML = `
       <h1 class="section-title">contact</h1>
       <p class="meta">last-modified: 2026-05-11</p>
+      <p>Open to data science, analytics, AI workflow, and data visualization work. Especially interested in teams that care about making analysis useful, readable, and sharp.</p>
       <p>
         email &nbsp;&nbsp;&nbsp;<a href="mailto:diegoperez749@gmail.com">diegoperez749@gmail.com</a><br/>
         github &nbsp;&nbsp;<a href="https://github.com/diegoperez956" target="_blank" rel="noopener">github.com/diegoperez956</a><br/>
@@ -446,11 +515,30 @@ contact</pre>
 }
 
 function itemMetaHtml(item) {
-  const blurb = item.blurb ? `<p class="blurb">${escapeHtml(item.blurb)}</p>` : '';
-  const stack = (item.stack && item.stack.length)
-    ? `<p class="stack">${item.stack.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</p>`
-    : '';
-  return blurb + stack;
+  const fields = [];
+  if (item.medium) fields.push(['medium', item.medium]);
+  if (item.stack && item.stack.length) fields.push(['stack', item.stack]);
+  if (item.year) fields.push(['year', item.year]);
+  if (item.what) fields.push(['what', item.what]);
+  if (item.why) fields.push(['why', item.why]);
+  if (!fields.length) {
+    return item.blurb ? `<p class="blurb">${escapeHtml(item.blurb)}</p>` : '';
+  }
+  const keyWidth = Math.max(...fields.map(f => f[0].length));
+  const rows = fields.map(([k, v], i) => {
+    const pad = ' '.repeat(keyWidth - k.length);
+    const comma = i === fields.length - 1 ? '' : '<span class="punct">,</span>';
+    let val;
+    if (Array.isArray(v)) {
+      val = `<span class="punct">[</span>${v.map(x => `<span class="str">"${escapeHtml(x)}"</span>`).join('<span class="punct">, </span>')}<span class="punct">]</span>`;
+    } else if (/^\d+$/.test(String(v))) {
+      val = `<span class="num">${escapeHtml(String(v))}</span>`;
+    } else {
+      val = `<span class="str">"${escapeHtml(String(v))}"</span>`;
+    }
+    return `  <span class="key">"${k}"</span><span class="punct">:</span>${pad} ${val}${comma}`;
+  }).join('\n');
+  return `<pre class="proj-json"><span class="punct">{</span>\n${rows}\n<span class="punct">}</span></pre>`;
 }
 
 function itemFrameHtml(item, section) {
@@ -495,8 +583,8 @@ function renderCollection(section, focusId) {
   const items = section === 'data-viz' ? dataViz : graphicDesign;
   const dirLabel = section === 'data-viz' ? '/selected-work' : '/visual-studies';
   const dirNote = section === 'data-viz'
-    ? 'analytical work across dashboards, public datasets, nonprofit reporting, and personal data experiments.'
-    : 'posters, edits, and layout experiments. design taste is part of the data work, not a side hobby.';
+    ? 'Dashboards, reports, public-data experiments, and analytical tools. Some built for stakeholders, some built to test a question. All attempts to make information easier to read without making it dumb.'
+    : 'Posters, edits, layouts, and small graphic experiments. The design side leaks through: type, texture, contrast, restraint, mood. Not everything here is useful. That is part of the point.';
   const dirDate = section === 'data-viz' ? '2026-03-18' : '2025-11-09';
   const active = focusId || itemLocked[section] || items[0].id;
   itemLocked[section] = active;
