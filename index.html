@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="theme-color" content="#282828"/>
 <title>Diego Perez · Index of /diegoperezdata</title>
-<meta name="description" content="Diego Perez. Data scientist. Dashboards, reports, and graphic design, served as a directory index."/>
+<meta name="description" content="ML models, LLM tools, dashboards, and visual studies by Diego Perez."/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Diego Perez · Index of /diegoperezdata"/>
-<meta property="og:description" content="Data scientist. Dashboards, reports, and graphic design, served as a directory index."/>
+<meta property="og:description" content="ML models, LLM tools, dashboards, and visual studies by Diego Perez."/>
 <meta property="og:image" content="https://diegoperezdata.com/selfie.png"/>
 <meta property="og:url" content="https://diegoperezdata.com/"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Diego Perez · Index of /diegoperezdata"/>
-<meta name="twitter:description" content="Data scientist. Dashboards, reports, and graphic design, served as a directory index."/>
+<meta name="twitter:description" content="ML models, LLM tools, dashboards, and visual studies by Diego Perez."/>
 <meta name="twitter:image" content="https://diegoperezdata.com/selfie.png"/>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23282828'/%3E%3Ctext x='3' y='12' font-family='monospace' font-size='12' fill='%23ebdbb2'%3ED%3C/text%3E%3C/svg%3E"/>
-<link rel="preload" as="image" href="/selfie.png"/>
+<link rel="preload" as="image" href="/portrait.svg"/>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/JetBrainsMono-Regular.woff2" crossorigin/>
 <style>
   @font-face {
@@ -54,19 +54,27 @@
     font-weight: bold;
     margin: 0 0 20px 0;
   }
-  h2 {
+  h2, h3 {
     font-size: 16px;
     font-weight: bold;
     margin: 24px 0 8px 0;
   }
-  a {
+  button {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    text-align: left;
+    box-sizing: content-box;
+  }
+  a, button {
     color: #83a598;
     text-decoration: underline;
     cursor: pointer;
   }
   a:visited { color: #d3869b; }
-  a:hover { color: #fe8019; }
-  a:focus-visible {
+  a:hover, button:hover { color: #fe8019; }
+  a:focus-visible, button:focus-visible {
     outline: 2px solid #fe8019;
     outline-offset: 2px;
     border-radius: 1px;
@@ -88,20 +96,24 @@
     align-items: start;
   }
   .left {
+    min-width: 0;
     position: sticky;
     top: 32px;
     align-self: start;
   }
   .listing {
+    overflow-x: auto;
     white-space: pre;
     line-height: 1.7;
     font-size: 13px;
   }
-  .listing .row.active a {
+  .listing .row.active a,
+  .listing .row.active .name-cell {
     color: #fe8019;
   }
   .headers { font-weight: bold; }
   .right {
+    min-width: 0;
     min-height: 60vh;
     border-left: 0;
     padding-left: clamp(20px, 2.5vw, 40px);
@@ -121,13 +133,10 @@
     cursor: pointer;
   }
   .pdf-actions { margin-bottom: 12px; font-size: 12px; }
-  .pdf-actions a { margin-right: 16px; }
-  .pdf-actions a.secondary {
-    color: #928374;
-    text-decoration: none;
-  }
-  .pdf-actions a.secondary:hover { color: #fe8019; text-decoration: underline; }
-  .right h1.section-title {
+  .pdf-actions a, .pdf-actions button { margin-right: 16px; }
+  .pdf-actions .secondary { color: #a89984; }
+  .pdf-actions .secondary:hover { color: #fe8019; }
+  .right .section-title {
     font-size: 22px;
     margin-top: 0;
   }
@@ -144,10 +153,6 @@
     height: auto;
     object-fit: contain;
     margin-bottom: 16px;
-  }
-  .item-list {
-    white-space: pre;
-    line-height: 1.7;
   }
   .focus-frame {
     width: 100%;
@@ -184,11 +189,9 @@
     -webkit-tap-highlight-color: rgba(254, 128, 25, 0.18);
     touch-action: manipulation;
   }
-  .sub-list .sub-row a { cursor: pointer; }
-  .sub-list .sub-row:focus-visible {
-    outline: 2px solid #fe8019;
-    outline-offset: 2px;
-  }
+  .sub-row { text-decoration: none; }
+  .sub-row .name-cell { text-decoration: underline; }
+  .sub-row .type-cell, .sub-row .date-cell { color: #ebdbb2; }
   @media (max-width: 800px) {
     .sub-list .name-cell { width: 22ch; }
     .sub-list .type-cell { width: 10ch; }
@@ -206,8 +209,7 @@
       overflow-y: auto;
     }
   }
-  .focus-frame iframe,
-  .focus-frame embed {
+  .focus-frame iframe {
     width: 100%;
     aspect-ratio: 16 / 10;
     max-height: 78vh;
@@ -224,20 +226,16 @@
     border: 0;
     object-fit: contain;
   }
-  .back {
-    display: inline-block;
-    margin-bottom: 16px;
-  }
   .meta {
     font-size: 12px;
-    color: #928374;
+    color: #a89984;
     margin-bottom: 12px;
   }
   .pill { display: inline-block; padding: 0 4px; border: 0; margin-right: 4px; font-size: 11px; }
   .mkdir {
     margin-top: 8px;
     font-size: 13px;
-    color: #928374;
+    color: #a89984;
   }
   .mkdir input {
     background: transparent;
@@ -251,6 +249,7 @@
     width: 160px;
   }
   .mkdir input:focus { border-bottom-color: #fe8019; }
+  .mkdir input::placeholder { color: #a89984; opacity: 1; }
   .tagline {
     font-size: 13px;
     color: #a89984;
@@ -259,7 +258,7 @@
   }
   .hint {
     font-size: 11px;
-    color: #7c6f64;
+    color: #a89984;
     margin: 0 0 20px 0;
     line-height: 1.6;
   }
@@ -270,20 +269,11 @@
     margin: 0 0 6px 0;
     max-width: 64ch;
   }
-  .blurb.why { color: #a89984; margin-bottom: 12px; }
-  .label-line {
-    font-size: 11px;
-    color: #928374;
-    margin: -4px 0 10px 0;
-    letter-spacing: 0.04em;
-    text-transform: lowercase;
-  }
-  .label-line .sep { color: #504945; margin: 0 6px; }
   .proj-json {
     margin: 0 0 14px 0;
     padding: 10px 14px;
     background: rgba(80, 73, 69, 0.18);
-    border-left: 2px solid #504945;
+    border: 1px solid #504945;
     font-size: 12.5px;
     line-height: 1.7;
     color: #ebdbb2;
@@ -293,10 +283,24 @@
   }
   .proj-json .key { color: #fabd2f; }
   .proj-json .str { color: #b8bb26; }
-  .proj-json .num { color: #d3869b; }
-  .proj-json .punct { color: #7c6f64; }
+  .proj-json .punct { color: #a89984; }
+  .repo-tree {
+    margin: 0 0 12px 0;
+    line-height: 1.7;
+    font-size: 13px;
+    color: #ebdbb2;
+    overflow-x: auto;
+  }
+  .repo-tree .punct { color: #a89984; }
+  .server-sig {
+    margin-top: 48px;
+    font-style: normal;
+    font-size: 11px;
+    color: #a89984;
+  }
+  .ext { color: #a89984; }
   .quote {
-    border-left: 2px solid #504945;
+    border-left: 1px solid #504945;
     padding: 4px 0 4px 14px;
     margin: 20px 0;
     color: #a89984;
@@ -308,7 +312,7 @@
   .quote cite {
     display: block;
     font-style: normal;
-    color: #7c6f64;
+    color: #a89984;
     font-size: 12px;
     margin-top: 6px;
   }
@@ -320,17 +324,6 @@
     white-space: pre;
     overflow-x: auto;
   }
-  .stack {
-    font-size: 11px;
-    color: #928374;
-    margin: 0 0 14px 0;
-    letter-spacing: 0.02em;
-  }
-  .stack .tag {
-    display: inline-block;
-    margin-right: 10px;
-    border-bottom: 1px dotted #504945;
-  }
   @media (max-width: 800px) {
     body { padding: 16px; padding-bottom: 60px; font-size: 12px; }
     h1 { font-size: 22px; }
@@ -340,9 +333,9 @@
     .listing { font-size: 12px; line-height: 1.6; overflow-x: auto; }
     #headers { overflow-x: auto; }
     .sub-list { font-size: 12px; }
-    .right h1.section-title { font-size: 18px; }
+    .right .section-title { font-size: 18px; }
     .right img.cover { max-width: 280px; max-height: 60vw; }
-    .focus-frame iframe, .focus-frame embed { aspect-ratio: 4 / 3; max-height: 70vh; }
+    .focus-frame iframe { aspect-ratio: 4 / 3; max-height: 70vh; }
     .focus-frame img { max-height: 60vh; }
     .pdf-thumb { max-height: 50vh; }
   }
@@ -360,7 +353,7 @@
       min-width: 0;
     }
     .right img.cover { max-width: 200px; max-height: 50vh; }
-    .focus-frame iframe, .focus-frame embed { aspect-ratio: 16 / 9; max-height: 70vh; }
+    .focus-frame iframe { aspect-ratio: 16 / 9; max-height: 70vh; }
     .focus-frame img { max-height: 70vh; }
     .pdf-thumb { max-height: 55vh; }
     .split { grid-template-columns: 1fr; gap: 12px; }
@@ -372,96 +365,101 @@
 </head>
 <body>
 
+<header>
 <h1>Index of /diegoperezdata</h1>
-<p class="tagline">data science / visual systems / AI-assisted analytics workflows</p>
-<p class="hint"># index-style portfolio. hover folders to peek, click to lock one open.</p>
+<p class="tagline">ai/ml engineering / data science / visual systems</p>
+<p class="hint"># hover to preview. click to open. ../ returns home.</p>
+<noscript><p>This index needs JavaScript. You can still <a href="/Diego_Perez_Resume.pdf">read my resume</a> or <a href="mailto:jobs@diegoperezdata.com">email me</a>.</p></noscript>
+</header>
 
 <div class="wrap">
-  <div class="left">
+  <nav class="left" aria-label="Portfolio">
     <div class="listing" id="headers"></div>
     <hr/>
     <div class="listing" id="rows"></div>
     <hr/>
     <form id="mkdir-form" class="mkdir">
-      <span>$ mkdir </span><input type="text" id="mkdir-input" autocomplete="off" spellcheck="false" placeholder="new-folder"/>
+      <label for="mkdir-input">$ mkdir </label><input type="text" id="mkdir-input" maxlength="40" autocomplete="off" spellcheck="false" placeholder="new-folder"/>
     </form>
-  </div>
+  </nav>
 
-  <div class="right" id="pane"></div>
+  <main class="right" id="pane"></main>
 </div>
+
+<footer><address class="server-sig">Apache/2.4.41 (Ubuntu) Server at diegoperezdata.com Port 443</address></footer>
 
 <script>
 const dataViz = [
+  { id: 'polars', title: 'polars-nlp', type: 'repo', date: '2026-03-25',
+    href: 'https://github.com/diegoperez956/polars-nlp',
+    medium: 'ai engineering tool',
+    stack: ['python', 'polars', 'llm'],
+    what: 'Generates Polars DataFrame code from plain English and the DataFrame schema.',
+    tree: ['docs/', 'scripts/', 'src/', 'tests/', 'AGENTS.md', 'README.md', 'pyproject.toml'] },
+  { id: 'mnist', title: 'MNIST 9-Minute Lesson', type: 'repo', date: '2026-06-11',
+    href: 'https://github.com/diegoperez956/mnist-lecture',
+    medium: 'ml teaching demo',
+    stack: ['pytorch', 'jupyter', 'teaching'],
+    what: 'A nine-minute lesson on neural networks and gradient descent using MNIST.',
+    tree: ['assets/', 'lesson_utils.py', 'mnist_10min_lesson.ipynb', 'requirements.txt', 'run_checks.py', 'README.md'] },
   { id: 'prison', title: 'Interactive Prison Populations Dashboard', type: 'iframe',
     src: 'https://app.powerbi.com/view?r=eyJrIjoiNjVhZTBmMzItM2RmOS00MzFjLWFjNDEtOTc1NWE3ZTNjMTFjIiwidCI6IjMxYmYwMzA0LTZkZTgtNDdhZi04ZjZhLTYyMzYwZmE0ZDgwYiJ9',
     medium: 'public-data dashboard',
     stack: ['power bi', 'public data', 'data cleaning'],
-    what: 'An interactive public-data dashboard exploring U.S. incarceration patterns across time, place, and demographic groups.',
-    why: 'Built to make a heavy policy topic easier to scan, compare, and question.' },
+    what: 'U.S. prison populations by year, location, and demographic group.' },
   { id: 'atlas', title: 'Interactive Atlas Dashboard', type: 'iframe',
     src: 'https://app.powerbi.com/view?r=eyJrIjoiNjUxNGQyYjQtZWE1OS00MTNkLWJkOGQtMGMwYjVmYTU0OTAzIiwidCI6IjMxYmYwMzA0LTZkZTgtNDdhZi04ZjZhLTYyMzYwZmE0ZDgwYiJ9',
     medium: 'dashboard study',
     stack: ['power bi', 'dashboard design'],
-    what: 'A dashboard study in density, hierarchy, and control-panel logic.',
-    why: 'Less template BI, more analytical instrument.' },
+    what: 'A Power BI dashboard layout study.' },
   { id: 'rym', title: 'RateYourMusic Deep Dive', type: 'image', src: '/RYM_Project.webp',
     medium: 'personal data exploration',
     stack: ['python', 'pandas', 'matplotlib'],
-    what: 'A personal music-data exploration built from rating and genre patterns.',
-    why: 'Part taste diary, part cleaning exercise, part proof that even obsession has structure.' },
+    what: 'Python analysis of RateYourMusic ratings and genres.' },
   { id: 'connected', title: "We're all connected.", type: 'image', src: '/connected.webp',
     medium: 'data visualization',
     stack: ['matplotlib', 'photoshop'],
-    what: 'A static visualization exploring connection and density as a visual idea.',
-    why: 'Network plot used as composition, not case study.' },
+    what: 'A network visualization made with Matplotlib and Photoshop.' },
   { id: 'alice', title: 'ALICE Correlations Presentation', type: 'pdf',
     src: '/Disparities%20Unveiled%20Stronger%20Correlations%20Between%20ALICE%20Households%20and%20Hispanic%20or%20Latino%20Communities.pptx.pdf',
     thumb: '/alice-thumb.webp',
     medium: 'community-needs analysis',
     stack: ['python', 'power bi', 'zip-level analysis'],
-    what: 'A community-needs analysis surfacing ZIP codes with high ALICE-household concentration and practical outreach potential.',
-    why: 'Built to help nonprofit teams move from "need is everywhere" to "start here."' },
+    what: 'ZIP-code analysis of ALICE households and Hispanic or Latino communities.',
+    why: 'Identifies ZIP codes for nonprofit outreach.' },
   { id: 'ntc', title: 'NTC Partner Report Final', type: 'pdf', src: '/NTC%20Partner%20Report%20Final%2010172023.pdf', thumb: '/ntc-thumb.webp',
-    medium: 'reporting piece',
+    medium: 'program report',
     stack: ['power bi', 'report design'],
-    what: 'A reporting piece turning program data into a clearer stakeholder narrative.',
-    why: 'Built around readability, pacing, and less digging.' },
+    what: 'A Power BI report on nonprofit program data.' },
   { id: 'ppr', title: 'PPR 2024 Q2 Report', type: 'pdf', src: '/PPR_2024Q2.pdf', thumb: '/ppr-thumb.webp',
     medium: 'quarterly performance report',
     stack: ['power bi', 'python', 'report design'],
-    what: 'A quarterly performance report designed to make operational trends easier to review.',
-    why: 'Not decoration. Less digging.' }
+    what: 'A quarterly performance report for Q2 2024.' }
 ];
 
 const graphicDesign = [
   { id: 'heading', title: 'WE MET ONLINE', src: '/graphic-design/Add a heading.webp',
     medium: 'visual study', stack: ['photoshop'],
-    what: 'A reflection on how algorithms and digital devices shape relationships today.',
-    why: 'Mood first, explanation second.' },
+    what: 'A poster about algorithms and devices in relationships.' },
   { id: 'metonline', title: 'WE MET ONLINE 2', src: '/graphic-design/WE MET ONLINE.webp',
     medium: 'visual study', stack: ['photoshop'],
-    what: 'A second pass on the same idea: algorithms and devices as the place where people meet now.',
-    why: 'Texture, restraint, slower read.' },
+    what: 'A second poster in the WE MET ONLINE series.' },
   { id: 'marcos', title: 'SUBCOMMANDANTE MARCOS', src: '/graphic-design/SUBCOMMANDANTE MARCOS.webp',
     medium: 'visual study', stack: ['photoshop'],
-    what: 'A fictional book cover for the Mexican political figure Subcomandante Marcos.',
-    why: 'Imagined publication design, treated as iconography.' },
+    what: 'A fictional book cover for Subcomandante Marcos.' },
   { id: 'untitled1', title: 'Bubbles', src: '/graphic-design/Untitled design (1).webp',
     medium: 'visual study', stack: ['photoshop'],
-    what: 'Geometry plus noise on a single surface.',
-    why: 'How little structure an image needs before it starts to feel intentional.' },
+    what: 'A composition of geometric shapes and noise.' },
   { id: 'untitled2', title: 'Topologos', src: '/graphic-design/Untitled design (2).webp',
     medium: 'visual study', stack: ['photoshop'],
-    what: 'Upcycling an old topology textbook I had lying around.',
-    why: 'Found-material composition, restrained typography.' },
+    what: 'A collage made from an old topology textbook.' },
   { id: 'untitled3', title: 'Mestizo 1', src: '/graphic-design/Untitled design (3).webp',
     medium: 'visual study', stack: ['photoshop'],
-    what: 'On Mexican identity and the long shadow of the Revolution.',
-    why: 'The violence and misery that plagued older generations still echoes in the present.' },
+    what: 'A poster about Mexican identity and the legacy of the Revolution.',
+    why: 'The violence and misery older generations faced still affect their descendants.' },
   { id: 'frontera', title: 'No me importa', src: '/graphic-design/no me importa.webp',
     medium: 'visual study', stack: ['photoshop'],
-    what: 'A visual sketch inspired by Pink Floyd\'s Ummagumma.',
-    why: 'Composition study riffing on the album cover\'s recursive frame.' }
+    what: 'A study of the recursive frame on Pink Floyd\'s Ummagumma cover.' }
 ];
 
 const pane = document.getElementById('pane');
@@ -471,66 +469,61 @@ function escapeHtml(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-const prefetched = new Set();
-function prefetchHeavy(section) {
-  const target = section === 'data-viz' ? '/RYM_Project.webp'
-    : section === 'graphic-design' ? '/graphic-design/SUBCOMMANDANTE MARCOS.webp'
-    : null;
-  if (!target || prefetched.has(target)) return;
-  prefetched.add(target);
-  const link = document.createElement('link');
-  link.rel = 'prefetch';
-  link.as = 'image';
-  link.href = encodeURI(target);
-  document.head.appendChild(link);
-}
-
 function render(section, focusId) {
-  if (section === 'home') {
+  if (section.startsWith('user:')) {
+    const name = section.slice(5);
+    const directory = userDirs.find(d => d.name === name);
     pane.innerHTML = `
-      <img class="cover" src="/selfie.png" alt="Diego Perez" width="420" height="420" loading="eager" decoding="async"/>
+      <h2 class="section-title">Index of /${escapeHtml(name)}</h2>
+      <p class="meta">0 entries &middot; created ${directory.date}</p>
+      <p class="meta">empty directory.</p>
+      <p><button type="button" data-rmdir>rm -rf ${escapeHtml(name)}/</button></p>
+    `;
+    pane.querySelector('[data-rmdir]').addEventListener('click', () => {
+      userDirs.splice(userDirs.indexOf(directory), 1);
+      saveUserDirs();
+      renderRows();
+      goTo('home');
+    });
+  } else if (section === 'home') {
+    pane.innerHTML = `
+      <img class="cover" src="/portrait.svg" alt="ASCII portrait of Diego Perez" width="432" height="495" decoding="async"/>
       <pre class="whoami" style="margin:8px 0 14px 0;line-height:1.7;font-size:13px;white-space:pre-wrap;max-width:62ch;">$ whoami
 diego perez
 rio grande valley, tx</pre>
       <blockquote class="quote">
-        &ldquo;An idiot admires complexity. A genius admires simplicity.&rdquo;
+        &quot;An idiot admires complexity. A genius admires simplicity.&quot;
         <cite>Terry A. Davis</cite>
       </blockquote>
-      <p class="blurb">I build analytical systems that make messy information usable. Sometimes that means a dashboard. Sometimes a report. Sometimes a weird little website that loads fast and gets out of the way.</p>
-      <p class="blurb why">This site is part of the work. A small archive for data projects, visual studies, and useful artifacts.</p>
-    `;
-  } else if (section === 'colophon') {
-    pane.innerHTML = `
-      <h1 class="section-title">Index of /colophon</h1>
-      <p class="meta">last-modified: 2026-05-11</p>
-      <p>Built as a static page styled after an Apache <code>mod_autoindex</code> listing, the default directory index you'd hit on an old web server. The metaphor is the point: a portfolio that reads like a filesystem, not a brochure.</p>
-      <p>Set in JetBrains Mono, self-hosted. Plain HTML/CSS/JS, no framework. Gruvbox-ish palette.</p>
-      <p>Aesthetic references: Apache index pages ca. 2003, the Yeezy.com directory drop, Maison Martin Margiela archive site ca. 2007.</p>
-      <p style="margin-top:24px">This site is a directory, not a portfolio. Each entry is a record; the index is the work.</p>
+      <p class="blurb">i build ML models and LLM-agent systems. this is where i keep my projects and visual studies.</p>
     `;
   } else if (section === 'about') {
     pane.innerHTML = `
-      <h1 class="section-title">about</h1>
-      <p class="meta">last-modified: 2026-04-22</p>
-      <p>I'm Diego, a data scientist interested in the point where analysis becomes something people can actually use.</p>
-      <p>My work sits between data science, business intelligence, visual design, and workflow automation. I like dashboards that do not feel dead, reports that do not bury the point, and tools that make the next decision easier.</p>
-      <p>I'm from the Rio Grande Valley and grew up in a Mexican American family, which probably explains some of the practicality. Outside of work I'm usually somewhere between experimental music, lifting, old internet design, and trying to make charts feel less sterile.</p>
-      <h2>education</h2>
+      <h2 class="section-title">about</h2>
+      <p class="meta">last-modified: 2026-07-03</p>
+      <p>i'm Diego, a senior data scientist at JPMorgan Chase. i work on ML models and LLM-agent systems. before that, i was a software engineer at Capital One.</p>
+      <p>my work includes propensity models over millions of records and LLM tools for database migration.</p>
+      <p>i'm from the Rio Grande Valley and grew up in a Mexican American family. outside work, i'm into experimental music, lifting, and old internet design.</p>
+      <h3>experience</h3>
+      <pre class="edu">2026-     JPMorgan Chase  Senior Data Scientist
+2025-26   Capital One     Software Engineer
+2023-25   BakerRipley     Data Analyst I &rarr; III</pre>
+      <h3>education</h3>
       <pre class="edu">MS   Data Science     University of Texas
 MBA  Analytics        UTRGV
 BA   Sport Analytics  Rice University</pre>
-      <h2>stack</h2>
+      <h3>stack</h3>
       <p>
-        <span class="pill">python</span><span class="pill">pandas</span><span class="pill">r</span><span class="pill">sql</span><span class="pill">power-bi</span><span class="pill">tableau</span><span class="pill">javascript</span><span class="pill">d3</span><span class="pill">matplotlib</span>
+        <span class="pill">python</span><span class="pill">pytorch</span><span class="pill">llm-agents</span><span class="pill">sql</span><span class="pill">pandas</span><span class="pill">fastapi</span><span class="pill">postgresql</span><span class="pill">snowflake</span><span class="pill">aws</span><span class="pill">docker</span><span class="pill">power-bi</span>
       </p>
     `;
   } else if (section === 'contact') {
     pane.innerHTML = `
-      <h1 class="section-title">contact</h1>
-      <p class="meta">last-modified: 2026-05-11</p>
-      <p>Open to data science, analytics, AI workflow, and data visualization work. Especially interested in teams that care about making analysis useful, readable, and sharp.</p>
+      <h2 class="section-title">contact</h2>
+      <p class="meta">last-modified: 2026-07-03</p>
+      <p>open to AI engineering, machine learning, and quant-adjacent data roles.</p>
       <p>
-        email &nbsp;&nbsp;&nbsp;<a href="mailto:diegoperez749@gmail.com">diegoperez749@gmail.com</a><br/>
+        email &nbsp;&nbsp;&nbsp;<a href="mailto:jobs@diegoperezdata.com">jobs@diegoperezdata.com</a><br/>
         github &nbsp;&nbsp;<a href="https://github.com/diegoperez956" target="_blank" rel="noopener">github.com/diegoperez956</a><br/>
         linkedin <a href="https://www.linkedin.com/in/diegoperez956/" target="_blank" rel="noopener">linkedin.com/in/diegoperez956</a><br/>
         resume &nbsp;&nbsp;<a href="/Diego_Perez_Resume.pdf" target="_blank" rel="noopener">Diego_Perez_Resume.pdf</a>
@@ -549,12 +542,8 @@ function itemMetaHtml(item) {
   const fields = [];
   if (item.medium) fields.push(['medium', item.medium]);
   if (item.stack && item.stack.length) fields.push(['stack', item.stack]);
-  if (item.year) fields.push(['year', item.year]);
   if (item.what) fields.push(['what', item.what]);
   if (item.why) fields.push(['why', item.why]);
-  if (!fields.length) {
-    return item.blurb ? `<p class="blurb">${escapeHtml(item.blurb)}</p>` : '';
-  }
   const keyWidth = Math.max(...fields.map(f => f[0].length));
   const rows = fields.map(([k, v], i) => {
     const pad = ' '.repeat(keyWidth - k.length);
@@ -562,8 +551,6 @@ function itemMetaHtml(item) {
     let val;
     if (Array.isArray(v)) {
       val = `<span class="punct">[</span>${v.map(x => `<span class="str">"${escapeHtml(x)}"</span>`).join('<span class="punct">, </span>')}<span class="punct">]</span>`;
-    } else if (/^\d+$/.test(String(v))) {
-      val = `<span class="num">${escapeHtml(String(v))}</span>`;
     } else {
       val = `<span class="str">"${escapeHtml(String(v))}"</span>`;
     }
@@ -572,41 +559,36 @@ function itemMetaHtml(item) {
   return `<pre class="proj-json"><span class="punct">{</span>\n${rows}\n<span class="punct">}</span></pre>`;
 }
 
-function itemFrameHtml(item, section) {
-  if (section === 'data-viz') {
-    if (item.type === 'iframe') return `<iframe src="${item.src}" loading="lazy" frameborder="0" allowfullscreen></iframe>`;
-    if (item.type === 'pdf') return `
-      <img class="pdf-thumb" src="${item.thumb}" alt="${escapeHtml(item.title)} preview" loading="lazy" decoding="async"/>
-      <div class="pdf-actions">
-        <a href="${item.src}" target="_blank" rel="noopener">open pdf &rarr;</a>
-        <a class="secondary" href="#" data-load-pdf="${item.src}">view inline</a>
-      </div>`;
-    return `<img src="${encodeURI(item.src)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async"/>`;
+function itemFrameHtml(item) {
+  if (item.type === 'repo') {
+    const lines = item.tree.map((f, i) => {
+      const glyph = i === item.tree.length - 1 ? '&#9492;&#9472;&#9472; ' : '&#9500;&#9472;&#9472; ';
+      return `<span class="punct">${glyph}</span>${escapeHtml(f)}`;
+    }).join('\n');
+    return `
+      <pre class="repo-tree">${escapeHtml(item.href.split('/').pop())}/\n${lines}</pre>
+      <div class="pdf-actions"><a href="${item.href}" target="_blank" rel="noopener">view repo on github &rarr;</a></div>`;
   }
+  if (item.type === 'iframe') return `<iframe src="${item.src}" title="${escapeHtml(item.title)}" loading="lazy" allowfullscreen></iframe>`;
+  if (item.type === 'pdf') return `
+    <a href="${item.src}" target="_blank" rel="noopener"><img class="pdf-thumb" src="${item.thumb}" alt="${escapeHtml(item.title)} preview" loading="lazy" decoding="async"/></a>
+    <div class="pdf-actions">
+      <a href="${item.src}" target="_blank" rel="noopener">open pdf &rarr;</a>
+      <button type="button" class="secondary" data-load-pdf="${item.src}" data-title="${escapeHtml(item.title)}">view inline</button>
+    </div>`;
   return `<img src="${encodeURI(item.src)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async"/>`;
 }
 
-function wireDeferredLoaders(root) {
-  root.querySelectorAll('.frame-skeleton[data-iframe-src]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const iframe = document.createElement('iframe');
-      iframe.src = btn.dataset.iframeSrc;
-      iframe.loading = 'lazy';
-      iframe.setAttribute('frameborder', '0');
-      iframe.setAttribute('allowfullscreen', '');
-      btn.replaceWith(iframe);
-    });
-  });
-  root.querySelectorAll('a[data-load-pdf]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      const src = a.dataset.loadPdf;
-      const frame = a.closest('.focus-frame');
-      if (!frame) return;
+function wirePdfPreviews(root) {
+  root.querySelectorAll('[data-load-pdf]').forEach(button => {
+    button.addEventListener('click', () => {
+      const src = button.dataset.loadPdf;
+      const frame = button.closest('.focus-frame');
       frame.innerHTML = `
-        <iframe src="${src}" loading="lazy" allowfullscreen></iframe>
-        <div class="pdf-actions"><a href="${src}" target="_blank" rel="noopener">can't see it? open in new tab &rarr;</a></div>
+        <iframe src="${src}" title="${escapeHtml(button.dataset.title)}" loading="lazy"></iframe>
+        <div class="pdf-actions"><a href="${src}" target="_blank" rel="noopener">open pdf in a new tab &rarr;</a></div>
       `;
+      frame.querySelector('iframe').focus();
     });
   });
 }
@@ -620,22 +602,18 @@ const subSortState = {
 function renderCollection(section, focusId) {
   const items = section === 'data-viz' ? dataViz : graphicDesign;
   const dirLabel = section === 'data-viz' ? '/selected-work' : '/visual-studies';
-  const dirNote = section === 'data-viz'
-    ? 'Dashboards, reports, public-data experiments, and analytical tools. Some built for stakeholders, some built to test a question. All attempts to make information easier to read without making it dumb.'
-    : 'Posters, edits, layouts, and small graphic experiments. The design side leaks through: type, texture, contrast, restraint, mood. Not everything here is useful. That is part of the point.';
-  const dirDate = section === 'data-viz' ? '2026-03-18' : '2025-11-09';
-  const active = focusId || itemLocked[section] || items[0].id;
+  const dirDate = section === 'data-viz' ? '2026-07-03' : '2025-11-09';
+  let active = focusId || itemLocked[section] || items[0].id;
+  if (!items.some(x => x.id === active)) active = items[0].id;
   itemLocked[section] = active;
 
-  const typeOf = d => section === 'data-viz'
-    ? (d.type === 'iframe' ? 'dashboard' : d.type === 'pdf' ? 'pdf' : 'image')
-    : 'image';
+  const typeOf = d => d.type === 'iframe' ? 'dashboard' : d.type || 'image';
   const subArrow = (col) => {
     const s = subSortState[section];
     if (s.col !== col) return '';
     return s.dir === 1 ? ' ▲' : ' ▼';
   };
-  const headerHtml = `<a class="name-cell" data-sub-sort="name">Name${subArrow('name')}</a><a class="type-cell" data-sub-sort="type">Type${subArrow('type')}</a><a class="date-cell" data-sub-sort="date">Updated${subArrow('date')}</a>`;
+  const headerHtml = `<button type="button" class="name-cell" data-sub-sort="name">Name${subArrow('name')}</button><button type="button" class="type-cell" data-sub-sort="type">Type${subArrow('type')}</button><button type="button" class="date-cell" data-sub-sort="date">Updated${subArrow('date')}</button>`;
 
   const sorted = [...items];
   const s = subSortState[section];
@@ -653,14 +631,13 @@ function renderCollection(section, focusId) {
     const typeLabel = typeOf(d);
     const date = d.date || dirDate;
     const cls = d.id === active ? 'row sub-row active' : 'row sub-row';
-    return `<span class="${cls}" data-item="${d.id}" role="button" tabindex="0"><a class="name-cell" data-item="${d.id}">${escapeHtml(d.title)}</a><span class="type-cell">${typeLabel}</span><span class="date-cell">${date}</span></span>`;
+    return `<a class="${cls}" data-item="${d.id}" href="${hashFor(section, d.id)}"><span class="name-cell">${escapeHtml(d.title)}</span><span class="type-cell">${typeLabel}</span><span class="date-cell">${date}</span></a>`;
   }).join('');
 
   const item = items.find(x => x.id === active);
   pane.innerHTML = `
-    <h1 class="section-title">Index of ${dirLabel}</h1>
+    <h2 class="section-title">Index of ${dirLabel}</h2>
     <p class="meta">${items.length} entries &middot; last-modified: ${dirDate}</p>
-    <p class="blurb" style="color:#a89984;max-width:60ch">${dirNote}</p>
     <div class="split">
       <div class="sub-list">
         <div class="listing"><span class="headers">${headerHtml}</span></div>
@@ -668,9 +645,9 @@ function renderCollection(section, focusId) {
         <div class="listing sub-rows">${rowSpans}</div>
       </div>
       <div class="sub-focus">
-        <h2 style="margin-top:0">${escapeHtml(item.title)}</h2>
+        <h3 style="margin-top:0">${escapeHtml(item.title)}</h3>
         ${itemMetaHtml(item)}
-        <div class="focus-frame">${itemFrameHtml(item, section)}</div>
+        <div class="focus-frame">${itemFrameHtml(item)}</div>
       </div>
     </div>
   `;
@@ -678,43 +655,43 @@ function renderCollection(section, focusId) {
   const focusEl = pane.querySelector('.sub-focus');
   const listEl = pane.querySelector('.sub-list');
   let subLocked = active;
-  wireDeferredLoaders(focusEl);
+  let shown = active;
+  wirePdfPreviews(focusEl);
 
   function paintFocus(id) {
+    if (id === shown) return;
     const it = items.find(x => x.id === id);
     if (!it) return;
-    focusEl.innerHTML = `<h2 style="margin-top:0">${escapeHtml(it.title)}</h2>${itemMetaHtml(it)}<div class="focus-frame">${itemFrameHtml(it, section)}</div>`;
-    wireDeferredLoaders(focusEl);
+    shown = id;
+    focusEl.innerHTML = `<h3 style="margin-top:0">${escapeHtml(it.title)}</h3>${itemMetaHtml(it)}<div class="focus-frame">${itemFrameHtml(it)}</div>`;
+    wirePdfPreviews(focusEl);
     listEl.querySelectorAll('.sub-row').forEach(r => r.classList.toggle('active', r.dataset.item === id));
   }
 
   listEl.querySelectorAll('.sub-row').forEach(row => {
     if (canHover) row.addEventListener('mouseenter', () => paintFocus(row.dataset.item));
-    const activate = (e) => {
+    row.addEventListener('click', (e) => {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       e.preventDefault();
       subLocked = row.dataset.item;
       itemLocked[section] = subLocked;
       paintFocus(subLocked);
-    };
-    row.addEventListener('click', activate);
-    row.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') activate(e);
+      const h = hashFor(section, subLocked);
+      if (location.hash !== h) history.replaceState(null, '', h);
     });
   });
-  listEl.querySelectorAll('a[data-sub-sort]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const col = a.dataset.subSort;
+  listEl.querySelectorAll('[data-sub-sort]').forEach(button => {
+    button.addEventListener('click', () => {
+      const col = button.dataset.subSort;
       const st = subSortState[section];
       if (st.col === col) st.dir = -st.dir;
       else { st.col = col; st.dir = 1; }
       renderCollection(section, itemLocked[section]);
+      pane.querySelector(`[data-sub-sort="${col}"]`).focus();
     });
   });
   if (canHover) listEl.addEventListener('mouseleave', () => paintFocus(subLocked));
 }
-window.render = render;
 
 function highlightActive(section) {
   document.querySelectorAll('#rows .row').forEach(r => {
@@ -724,54 +701,88 @@ function highlightActive(section) {
 
 let locked = null;
 
+const sectionSlug = { 'data-viz': 'selected-work', 'graphic-design': 'visual-studies', 'about': 'about', 'contact': 'contact' };
+const slugSection = { 'selected-work': 'data-viz', 'visual-studies': 'graphic-design', 'about': 'about', 'contact': 'contact' };
+
+function hashFor(section, itemId) {
+  if (section === 'home') return '#/';
+  if (section.startsWith('user:')) return '#/' + encodeURIComponent(section.slice(5));
+  return '#/' + sectionSlug[section] + (itemId ? '/' + itemId : '');
+}
+
+function applyHash() {
+  let raw = location.hash.replace(/^#\/?/, '');
+  try { raw = decodeURIComponent(raw); } catch (e) {}
+  const parts = raw.split('/');
+  const slug = parts[0] || '';
+  let section = 'home';
+  if (Object.hasOwn(slugSection, slug)) section = slugSection[slug];
+  else if (userDirs.some(d => d.name === slug)) section = 'user:' + slug;
+  locked = section === 'home' ? null : section;
+  const item = parts[1];
+  if (item && itemLocked[section] !== undefined) itemLocked[section] = item;
+  render(section, item);
+}
+
+function goTo(section, itemId) {
+  const h = hashFor(section, itemId);
+  if (location.hash === h) applyHash();
+  else location.hash = h;
+}
+window.addEventListener('hashchange', applyHash);
+
 function wireRow(row) {
   const section = row.dataset.section;
   if (!section) return;
   if (canHover) {
     row.addEventListener('mouseenter', () => {
-      prefetchHeavy(section);
       if (!locked) render(section);
     });
   }
   row.addEventListener('click', (e) => {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     e.preventDefault();
-    locked = section;
-    prefetchHeavy(section);
-    render(section);
+    goTo(section);
   });
 }
 
 const fileRows = [
-  { name: 'selected-work/',  type: 'directory', date: '2026-03-18', section: 'data-viz' },
+  { name: 'selected-work/',  type: 'directory', date: '2026-07-03', section: 'data-viz' },
   { name: 'visual-studies/', type: 'directory', date: '2025-11-09', section: 'graphic-design' },
-  { name: 'about',           type: 'file',      date: '2026-04-22', section: 'about' },
-  { name: 'colophon',        type: 'file',      date: '2026-05-11', section: 'colophon' },
-  { name: 'contact',         type: 'file',      date: '2024-08-03', section: 'contact' },
+  { name: 'about',           type: 'file',      date: '2026-07-03', section: 'about' },
+  { name: 'contact',         type: 'file',      date: '2026-07-03', section: 'contact' },
   { name: 'github.url',      type: 'link',      date: '2026-05-10', href: 'https://github.com/diegoperez956' },
   { name: 'linkedin.url',    type: 'link',      date: '2025-09-14', href: 'https://www.linkedin.com/in/diegoperez956/' },
-  { name: 'resume.pdf',      type: 'file',      date: '2026-05-11', href: '/Diego_Perez_Resume.pdf' }
+  { name: 'resume.pdf',      type: 'file',      date: '2026-07-03', href: '/Diego_Perez_Resume.pdf' }
 ];
 
-const userDirs = JSON.parse(localStorage.getItem('userDirs') || '[]');
+const userDirs = (() => {
+  try {
+    const v = JSON.parse(localStorage.getItem('userDirs') || '[]');
+    return Array.isArray(v) ? v.filter(d => d && typeof d.name === 'string'
+      && /^[a-zA-Z0-9_-]{1,40}$/.test(d.name) && !Object.hasOwn(slugSection, d.name)
+      && typeof d.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d.date)) : [];
+  } catch (e) { return []; }
+})();
+
+function saveUserDirs() {
+  try { localStorage.setItem('userDirs', JSON.stringify(userDirs)); } catch (e) {}
+}
 
 const NAME_W = 17, TYPE_W = 12;
 const sortState = { col: null, dir: 1 };
 
-function padRight(s, n) { s = String(s); return s + ' '.repeat(Math.max(0, n - s.length)); }
-
 function rowHtml(r) {
   const nameGap = ' '.repeat(Math.max(1, NAME_W - r.name.length));
-  const typeCell = padRight(r.type, TYPE_W);
+  const typeCell = r.type.padEnd(TYPE_W);
   const dateCell = r.date || '-';
   if (r.section) {
-    return `<span class="row" data-section="${r.section}"><a data-section="${r.section}">${escapeHtml(r.name)}</a>${nameGap}${typeCell}${dateCell}</span>`;
+    return `<span class="row" data-section="${r.section}"><a data-section="${r.section}" href="${hashFor(r.section)}">${escapeHtml(r.name)}</a>${nameGap}${typeCell}${dateCell}</span>`;
   }
-  if (r.href) {
-    const ext = r.href.startsWith('http');
-    const attrs = ext ? ' target="_blank" rel="noopener"' : '';
-    return `<span class="row"><a href="${r.href}"${attrs}>${escapeHtml(r.name)}</a>${nameGap}${typeCell}${dateCell}</span>`;
-  }
-  return `<span class="row">${padRight(r.name, NAME_W)}${typeCell}${dateCell}</span>`;
+  const ext = r.href.startsWith('http');
+  const attrs = ext ? ' target="_blank" rel="noopener"' : '';
+  const mark = ext ? '<span class="ext"> &rarr;</span>' : '';
+  return `<span class="row"><a href="${r.href}"${attrs}>${escapeHtml(r.name)}</a>${nameGap}${typeCell}${dateCell}${mark}</span>`;
 }
 
 function sortedRows() {
@@ -796,6 +807,7 @@ function renderRows() {
   const rowsEl = document.getElementById('rows');
   rowsEl.innerHTML = sortedRows().map(rowHtml).join('\n');
   rowsEl.querySelectorAll('.row[data-section]').forEach(wireRow);
+  highlightActive(locked || 'home');
 }
 
 function arrow(col) {
@@ -807,15 +819,15 @@ function renderHeaders() {
   const headersEl = document.getElementById('headers');
   const namePad = ' '.repeat(Math.max(1, NAME_W - ('Name'.length + arrow('name').length)));
   const typePad = ' '.repeat(Math.max(1, TYPE_W - ('Type'.length + arrow('type').length)));
-  headersEl.innerHTML = `<span class="headers"><a data-sort="name">Name${arrow('name')}</a>${namePad}<a data-sort="type">Type${arrow('type')}</a>${typePad}<a data-sort="date">Updated${arrow('date')}</a></span>`;
-  headersEl.querySelectorAll('a[data-sort]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      const col = a.dataset.sort;
+  headersEl.innerHTML = `<span class="headers"><button type="button" data-sort="name">Name${arrow('name')}</button>${namePad}<button type="button" data-sort="type">Type${arrow('type')}</button>${typePad}<button type="button" data-sort="date">Updated${arrow('date')}</button></span>`;
+  headersEl.querySelectorAll('[data-sort]').forEach(button => {
+    button.addEventListener('click', () => {
+      const col = button.dataset.sort;
       if (sortState.col === col) sortState.dir = -sortState.dir;
       else { sortState.col = col; sortState.dir = 1; }
       renderHeaders();
       renderRows();
+      headersEl.querySelector(`[data-sort="${col}"]`).focus();
     });
   });
 }
@@ -825,52 +837,26 @@ renderRows();
 
 if (canHover) {
   document.querySelector('#rows').addEventListener('mouseleave', () => {
-    if (locked) render(locked);
+    if (!locked) render('home');
   });
+} else {
+  document.querySelector('.hint').textContent = '# tap to open. ../ returns home.';
 }
 
 document.getElementById('mkdir-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const input = document.getElementById('mkdir-input');
-  const raw = input.value.trim().replace(/[^a-zA-Z0-9_\-]/g, '-');
-  if (!raw) return;
+  const raw = input.value.trim().replace(/[^a-zA-Z0-9_\-]/g, '-').slice(0, 40);
+  if (!raw || Object.hasOwn(slugSection, raw)) return;
   if (userDirs.some(d => d.name === raw)) { input.value = ''; return; }
   const today = new Date().toISOString().slice(0,10);
   userDirs.push({ name: raw, date: today });
-  localStorage.setItem('userDirs', JSON.stringify(userDirs));
+  saveUserDirs();
   input.value = '';
   renderRows();
 });
 
-const originalRender = render;
-render = function(section, focusId) {
-  if (section && section.startsWith('user:')) {
-    const name = section.slice(5);
-    pane.innerHTML = `
-      <h1 class="section-title">Index of /${escapeHtml(name)}</h1>
-      <p class="meta">0 entries &middot; created ${(userDirs.find(d=>d.name===name)||{}).date||''}</p>
-      <p class="meta">empty directory.</p>
-      <p><a data-rmdir="${escapeHtml(name)}">rm -rf ${escapeHtml(name)}/</a></p>
-    `;
-    pane.querySelector('a[data-rmdir]').addEventListener('click', (e) => {
-      e.preventDefault();
-      const i = userDirs.findIndex(d => d.name === name);
-      if (i >= 0) {
-        userDirs.splice(i, 1);
-        localStorage.setItem('userDirs', JSON.stringify(userDirs));
-        renderRows();
-        locked = null;
-        originalRender('home');
-      }
-    });
-    highlightActive(section);
-    return;
-  }
-  return originalRender(section, focusId);
-};
-window.render = render;
-
-render('home');
+applyHash();
 </script>
 
 </body>
