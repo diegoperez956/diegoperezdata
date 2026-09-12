@@ -40,7 +40,7 @@ Strategy: restrained. Orange is the single interaction color; everything else is
 - `.edu`: pre-aligned fact tables (experience, education).
 - `.repo-tree`: ASCII `tree`-style file listing for repo entries.
 - `.server-sig`: fake Apache `<address>` signature inside the footer; also on 404.html.
-- `.cover`: static ASCII portrait in `portrait.svg`, generated offline from `selfie.png`. SVG character spacing preserves face proportions. The source PNG remains the social-share image.
+- `.cover`: original headshot in `selfie.png`, also used for social sharing. The ASCII replacement was rejected for distorted proportions. New portraits require visual approval in a preview before deployment; dimension checks alone do not verify likeness.
 - Sort controls are native buttons. Collection rows are native links. PDF thumbnails link to files; inline preview is an explicit button action.
 
 ## Routing

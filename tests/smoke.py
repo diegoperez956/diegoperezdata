@@ -33,14 +33,15 @@ with sync_playwright() as pw:
         page.wait_for_timeout(60)
 
     go()
-    expect(page.locator('main img.cover')).to_have_attribute('src', '/portrait.svg')
-    assert page.locator('main img.cover').evaluate('(img) => img.complete && img.naturalWidth === 432')
-    assert not any(url.endswith('/selfie.png') for url in requests)
+    expect(page.locator('main img.cover')).to_have_attribute('src', '/selfie.png')
+    expect(page.locator('main img.cover')).to_have_js_property('complete', True)
+    assert page.locator('main img.cover').evaluate('(img) => img.naturalWidth === 3015 && img.naturalHeight === 3015')
+    assert not any(url.endswith('/portrait.svg') for url in requests)
     assert page.locator('h1').count() == 1
     page.screenshot(path=str(OUT / 'home-desktop.png'), full_page=True)
 
     assets = page.evaluate("[...dataViz, ...graphicDesign].flatMap(x => [x.src, x.thumb]).filter(x => x && x.startsWith('/'))")
-    for asset in assets + ['/Diego_Perez_Resume.pdf', '/portrait.svg']:
+    for asset in assets + ['/Diego_Perez_Resume.pdf', '/selfie.png']:
         assert (ROOT / unquote(asset).lstrip('/')).is_file(), asset
         assert context.request.get(base + asset).ok, asset
     results.append('All local project assets and resume resolve')

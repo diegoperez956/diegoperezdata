@@ -10,7 +10,7 @@ python3 -m http.server 8000
 
 Open http://localhost:8000. Content, styles, and navigation live in `index.html`.
 
-`portrait.svg` is an ASCII conversion of `selfie.png`, cropped around the face with aspect-correct character spacing. It loads as an image without running conversion code. The original PNG remains the social-share image.
+`selfie.png` is the headshot and social-share image. Any replacement portrait needs visual approval before deployment.
 
 ## Browser checks
 
